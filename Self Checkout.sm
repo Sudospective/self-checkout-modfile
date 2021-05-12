@@ -18,7 +18,7 @@
 #DISPLAYBPM:160.000;
 #BPMS:0.000=160.000;
 #STOPS:;
-#TIMESIGNATURES:;
+#TIMESIGNATURES:0.000=4=4;
 #BGCHANGES:;
 
 //The majority of simfile scripts and visual effects are stored here.
@@ -434,10 +434,10 @@
 0100
 1000
 ,
-0010
+0040
 0000
 0000
-0000
+0030
 ,
 1001
 0000

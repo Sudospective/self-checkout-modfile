@@ -12,12 +12,13 @@
 #CDTITLE:;
 #MUSIC:Self Checkout.ogg;
 #OFFSET:-0.542;
-#SAMPLESTART:95.860;
-#SAMPLELENGTH:12.000;
+#SAMPLESTART:26.047;
+#SAMPLELENGTH:12.047;
 #SELECTABLE:YES;
 #DISPLAYBPM:160.000;
 #BPMS:0.000=160.000;
 #STOPS:;
+#TIMESIGNATURES:;
 #BGCHANGES:;
 
 //The majority of simfile scripts and visual effects are stored here.
