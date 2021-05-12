@@ -5,7 +5,9 @@
 
 	alias {'confusionzoffset', 'confusionoffset'}
 
-	setdefault {100, 'modtimer'}
+
+	setdefault {100, 'modtimer', 0, 'scanlinepos', 0, 'scanlinealpha'}
+	
 
 	ease {34, 2, inOutCirc, 100, 'mini', 20, 'reverse'}
 	ease {36, 24, inQuad, -200, 'mini', 0, 'reverse'}
@@ -13,12 +15,14 @@
 	ease {36, 24, inQuad, 50, 'flip'}
 
 	for beat = 36, 58, 2 do
-		ease {beat, 1, flip(outCirc), 25, 'skewx', 25, 'skewy', -25, 'noteskewx', -25, 'noteskewy', -50, 'parabolax', -100, 'movex'}
-		ease {beat + 1, 1, flip(outCirc), -25, 'skewx', -25, 'skewy', 25, 'noteskewx', 25, 'noteskewy', 50, 'parabolax', 100, 'movex'}
+		ease {beat, 1, flip(outCirc), 25, 'skewx', 25, 'skewy', -25, 'noteskewx', -25, 'noteskewy', 50, 'parabolax', -100, 'movex'}
+		ease {beat + 1, 1, flip(outCirc), -25, 'skewx', -25, 'skewy', 25, 'noteskewx', 25, 'noteskewy', -50, 'parabolax', 100, 'movex'}
 	end
 
 	ease {36, 24, inCirc, 360 * 16, 'rotationy', -(360 * 16) * math.pi/1.8, 'confusionyoffset'}
 	add {60, 2, flip(outBack), -90, 'rotationy', 90 * math.pi/1.8, 'confusionyoffset'}
+	swap {62, 4, spike, 'rudl'}
+	ease {64, 4, inverse, 300, 'tipsy'}
 
 	set {60, 0, 'flip'}
 	ease {60, 2, flip(outBack), -50, 'movex0', 150, 'movex1', -150, 'movex2', 50, 'movex3'}
@@ -26,7 +30,9 @@
 	ease {60, 1, outCirc, 0, 'mini'}
 	add {56, 8, spike, -100, 'mini'}
 
-	add {64, 4, tap, -0.15, 'xmod', 100, 'brake'}
+	ease {60, 2, outCirc, 1, 'xmod'}
+
+	add {60, 8, tap, -0.15, 'xmod', 50, 'brake'}
 
 	swap {60, 0, instant, 'drlu'}
 	swap {64, 4, inQuad, 'ldur'}
@@ -37,10 +43,38 @@
 	ease {67, 2, spike, -5000, 'tiny', 100, 'stealth'}
 
 	ease {67.5, 3, bell, 90, 'reverse', -100, 'tiny', 100, 'flip', -60, 'rotationx', 400, 'zoomz', -100, 'tornado'}
+	
+	ease {66, 2, inCirc, 1.75, 'xmod'}
 
 	set {68, 0, 'rotationy', 0, 'confusionyoffset'}
-	ease {68, 2, flip(outSine), -5000, 'tinyz'}
+	ease {68, 2, flip(outQuad), -5000, 'tinyz'}
 	ease {68, 2, flip(outElastic), 1500, 'x', 500, 'spiralx'}
+	
+	for beat = 70, 92 do
+		ease {beat, 1, tri, sw, 'scanlinepos'}
+	end
+
+	set {70, 100, 'scanlinealpha'}
+	set {76, 0, 'scanlinealpha'}
+	set {78, 100, 'scanlinealpha'}
+	set {82, 0, 'scanlinealpha'}
+	set {86, 100, 'scanlinealpha'}
+	set {92, 0, 'scanlinealpha'}
+
+	ease {94, 1, pop, -scx * 0.25, 'x', -15, 'rotationy', 20, 'flip', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', 20, 'rotationx'}
+	ease {94.5, 1, pop, scx * 0.25, 'x', 15, 'rotationy', 20, 'flip', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', 10, 'rotationx'}
+	ease {95, 1, pop, -scx * 0.25, 'x', -15, 'rotationy', 20, 'flip', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', 5, 'rotationx'}
+	ease {95.5, 1, pop, scx * 0.25, 'x', 15, 'rotationy', 20, 'flip', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax'}
+	ease {96, 2, pop, 75, 'invert', 20, 'flip', -scx * 0.25, 'x', -15, 'rotationy', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax'}
+	ease {97, 2, pop, 75, 'invert', 20, 'flip', scx * 0.25, 'x', 15, 'rotationy', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax'}
+
+	ease {98, 1, outExpo, 1080, 'rotationy', -15, 'rotationx'}
+	ease {98, 2, inOutExpo, 100, 'flip', 0, 'rotationx', 1, 'xmod', 50, 'brake'}
+	ease {99, 2, inverse, 200, 'mini'}
+	ease {99, 1, inExpo, 0, 'flip', 1.75, 'xmod', 0, 'brake'}
+	ease {99.5, 3, bell, 90, 'reverse', -100, 'tiny', 100, 'flip', -60, 'rotationx', 400, 'zoomz', -100, 'tornado'}
+	ease {100, 2, flip(outQuad), -5000, 'tinyz'}
+	ease {100, 2, flip(outElastic), 1500, 'x', 500, 'spiralx'}
 	
 end)"
 Type = "ActorFrame"

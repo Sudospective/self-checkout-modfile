@@ -15,6 +15,7 @@
 	= inOutSine, inOutCubic, inOutQuint, inOutCirc, inOutElastic, inOutQuad, inOutQuart, inOutExpo, inOutBack, inOutBounce
 	
 -------------------------------------- bg stuff ---------------------------------------------------
+
 	CheckoutBg:x(SCREEN_CENTER_X)
 	CheckoutBg:y(SCREEN_CENTER_Y)
 	CheckoutBg:diffuse(0.35, 0.35, 0.65, 1)
@@ -38,6 +39,20 @@
 		CheckoutFog:zoom(1.5+zm+k)
 	end}
 	
+	definemod {'scanlinepos', 'scanlinealpha', function(y, a)
+		ScanLine:y(y)
+		ScanLine:diffusealpha(a * 0.01)
+		ScanSprite:diffusealpha(a * 0.009)
+	end}
+
+-------------------------------------- fg stuff ---------------------------------------------------
+
+	aft(ScanAFT)
+	sprite(ScanSprite)
+	aftsprite(ScanAFT, ScanSprite)
+	ScanSprite:diffusealpha(0)
+
+	
 end)"
 Type = "ActorFrame"
 ><children>
@@ -53,4 +68,17 @@ Type = "ActorFrame"
 	<Layer Type = "ActorProxy" Name = "PJ[2]" />
 	<Layer Type = "ActorProxy" Name = "PP[1]" />
 	<Layer Type = "ActorProxy" Name = "PP[2]" />
+	<Layer Type = "Sprite" Name = "ScanSprite" />
+	<Layer
+		Type = "Quad"
+		Name = "ScanLine"
+		OnCommand = "%xero(function(self)
+			self:xy(scx, 0)
+			self:SetWidth(sw)
+			self:SetHeight(1)
+			self:diffuse(0, 1, 0, 1)
+		end)"
+	/>
+	<Layer Type = "ActorFrameTexture" Name = "ScanAFT" />
+
 </children></Mods>
