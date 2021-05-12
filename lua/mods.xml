@@ -19,6 +19,11 @@
 	CheckoutBg:y(SCREEN_CENTER_Y)
 	CheckoutBg:diffuse(0.35, 0.35, 0.65, 1)
 	
+	CheckoutBg:zoomtowidth(SCREEN_WIDTH)
+	CheckoutBg:zoomtoheight(SCREEN_HEIGHT)
+	CheckoutFog:zoomtowidth(SCREEN_WIDTH)
+	CheckoutFog:zoomtoheight(SCREEN_HEIGHT)
+	
 	CheckoutFog:x(SCREEN_CENTER_X)
 	CheckoutFog:y(SCREEN_CENTER_Y)
 	CheckoutFog:customtexturerect(0,0,1,1)
@@ -29,10 +34,8 @@
 -------------------------------------- definemod stuff ---------------------------------------------------
 	
 	definemod {'bgzoom','bgkick', function(zm,k)
-		CheckoutBg:zoomtowidth(SCREEN_WIDTH+zm+k)
-		CheckoutBg:zoomtoheight(SCREEN_HEIGHT+zm+k)
-		CheckoutFog:zoomtowidth(SCREEN_WIDTH+zm+k)
-		CheckoutFog:zoomtoheight(SCREEN_HEIGHT+zm+k)
+		CheckoutBg:zoom(1+zm+k)
+		CheckoutFog:zoom(1.5+zm+k)
 	end}
 	
 end)"

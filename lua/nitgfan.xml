@@ -2,7 +2,7 @@
 	local SineS, CubicS, QuintS, CircS, ElasticS, QuadS, QuartS, ExpoS, BackS, BounceS 
 	= inOutSine, inOutCubic, inOutQuint, inOutCirc, inOutElastic, inOutQuad, inOutQuart, inOutExpo, inOutBack, inOutBounce
 	-- your code goes here here:
-	set {0, 0.1, 'xmod', 1, 'zbuffer', 1, 'approachtype', 200, 'modtimer', 1, 'halgun', 1, 'dizzyholds', -100, 'drawsizeback', 1, 'stealthtype', 1, 'stealthpastreceptors', 1, 'receptorzbuffer',30,'reverse',200,'mini'}
+	set {0, 0.1, 'xmod', 1, 'zbuffer', 1, 'approachtype', 200, 'modtimer', 1, 'halgun', 1, 'dizzyholds', -100, 'drawsizeback', 1, 'stealthtype', 1, 'stealthpastreceptors', 1, 'receptorzbuffer',30,'reverse',200,'mini',100,'cover'}
 	set {0, 500, 'zoomz'}
 	
 	ease2 (4,1,CubicS,0,'mini')
@@ -24,10 +24,53 @@
 		ease {i, 1, flip(outSine), -5*f, 'rotationz'}
 		ease {i, 1, flip(outSine), 125, 'zoomx'}
 		ease {i, 1, flip(outSine), 50, 'stealth'}
-		mod_kick(i,1,0, 50,'bgkick','Quart','Quart')
+		mod_kick(i,1,0, 0.1,'bgkick','Quart','Quart')
 	f = f * -1
 	end
 	
+	ease {60, 1, flip(outQuart), -200, 'tiny'}
+	ease {61.5, 1, flip(outQuart), -200, 'tiny'}
+	ease {62, 1, flip(outQuart), -200, 'tiny'}
+	ease {63, 1, flip(outQuart), -200, 'tiny'}
+	ease {64.5, 1, flip(outQuart), -200, 'tiny'}
+	ease {65, 1, flip(outQuart), -200, 'tiny'}
+	
+	ease {60, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {61.5, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {62, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {63, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {64.5, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {65, 1, flip(outQuart), 0.1, 'bgkick'}
+	
+	ease {60, 1, flip(outQuart), -200, 'tipsy'}
+	ease {61.5, 1, flip(outQuart), 200, 'tipsy'}
+	ease {62, 1, flip(outQuart), -200, 'tipsy'}
+	ease {63, 1, flip(outQuart), 200, 'tipsy'}
+	ease {64.5, 1, flip(outQuart), -200, 'tipsy'}
+	ease {65, 1, flip(outQuart), 200, 'tipsy'}
+	
+	ease {64, 4, inSine, 1, 'bgzoom'}
+	ease2 (68,1,CircS,-0.5,'bgzoom')
+	ease2 (70,1,CircS, 0,'bgzoom')
+	
+	ease2 (60,1,CircS,100,'reverse')
+	ease2 (61,1,CircS,0,'reverse')
+	
+	ease2 (63,1,CircS,-50,'x')
+	ease2 (64,1,CircS,50,'x')
+	ease2 (66,1,CircS,0,'x')
+	
+	ease2 (63,1,CircS,-50,'confusionzoffset')
+	ease2 (64,1,CircS,50,'confusionzoffset')
+	ease2 (66,1,CircS,0,'confusionzoffset')
+	
+	ease2 (66,2,flip(CubicS),360,'rotationx2')
+	
+	local f = 1
+	for i=64.5,67.5,0.5 do
+		mod_kick(i,0.5,0, 50,'y','Cubic','Cubic')
+	f = f * -1
+	end
 	
 end)"
 Type = "ActorFrame"
