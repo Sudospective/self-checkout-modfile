@@ -1,0 +1,24 @@
+<Plugin OnCommand = "%xero(function(self)
+
+	local spellcards = {
+	}
+
+    function addspellcard(s,e,n,d,c)
+        table.insert(spellcards,{s,e,n,d,c})
+    end
+
+    function sendspellcards()
+        if table.getn(spellcards) == 0 or tonumber(GAMESTATE:GetVersionDate()) < 20170714 then return false end
+		
+		local s = GAMESTATE:GetCurrentSong()
+		s:SetNumSpellCards(#spellcards)
+
+        for i,v in ipairs(spellcards) do
+            s:SetSpellCardTiming(i-1,v[1],v[2])
+			s:SetSpellCardName(i-1,v[3])
+			s:SetSpellCardDifficulty(i-1,v[4])
+			s:SetSpellCardColor(i-1,v[5][1],v[5][2],v[5][3],v[5][4])
+        end
+    end
+
+end)" />

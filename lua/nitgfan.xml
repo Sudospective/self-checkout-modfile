@@ -1,0 +1,36 @@
+<Mods LoadCommand = "%xero(function(self)
+	local SineS, CubicS, QuintS, CircS, ElasticS, QuadS, QuartS, ExpoS, BackS, BounceS 
+	= inOutSine, inOutCubic, inOutQuint, inOutCirc, inOutElastic, inOutQuad, inOutQuart, inOutExpo, inOutBack, inOutBounce
+	-- your code goes here here:
+	set {0, 0.1, 'xmod', 1, 'zbuffer', 1, 'approachtype', 200, 'modtimer', 1, 'halgun', 1, 'dizzyholds', -100, 'drawsizeback', 1, 'stealthtype', 1, 'stealthpastreceptors', 1, 'receptorzbuffer',30,'reverse',200,'mini'}
+	set {0, 500, 'zoomz'}
+	
+	ease2 (4,1,CubicS,0,'mini')
+	
+	ease {4, 32-4, inExpo, 1.75, 'xmod',0,'reverse'}
+	
+	ease {4, 32-4, flip(linear), 360*4, 'rotationy2'}
+	ease {4, 32-4, flip(inSine), 360*1, 'rotationx2'}
+	
+	func{0,function()
+		for pn = 1,2 do
+			P[pn]:x(SCREEN_CENTER_X)
+		end
+	end}
+	
+	local f = 1
+	for i=4,31 do
+		ease {i, 1, flip(outSine), 100, 'z'}
+		ease {i, 1, flip(outSine), -5*f, 'rotationz'}
+		ease {i, 1, flip(outSine), 125, 'zoomx'}
+		ease {i, 1, flip(outSine), 50, 'stealth'}
+		mod_kick(i,1,0, 50,'bgkick','Quart','Quart')
+	f = f * -1
+	end
+	
+	
+end)"
+Type = "ActorFrame"
+><children>
+
+</children></Mods>

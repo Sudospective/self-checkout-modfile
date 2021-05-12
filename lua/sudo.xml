@@ -1,0 +1,9 @@
+<Mods LoadCommand = "%xero(function(self)
+	local SineS, CubicS, QuintS, CircS, ElasticS, QuadS, QuartS, ExpoS, BackS, BounceS 
+	= inOutSine, inOutCubic, inOutQuint, inOutCirc, inOutElastic, inOutQuad, inOutQuart, inOutExpo, inOutBack, inOutBounce
+	-- your code goes here here:
+	
+end)"
+Type = "ActorFrame"
+><children>
+</children></Mods>

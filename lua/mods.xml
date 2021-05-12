@@ -1,0 +1,53 @@
+<Mods LoadCommand = "%xero(function(self)
+	-- judgment / combo proxies
+	for pn = 1, 2 do
+		setupJudgeProxy(PJ[pn], P[pn]:GetChild('Judgment'), pn)
+		setupJudgeProxy(PC[pn], P[pn]:GetChild('Combo'), pn)
+	end
+	-- player proxies
+	for pn = 1, #PP do
+		PP[pn]:SetTarget(P[pn])
+		P[pn]:hidden(1)
+		P[pn]:SetFarDist(100000)
+	end
+	
+	local SineS, CubicS, QuintS, CircS, ElasticS, QuadS, QuartS, ExpoS, BackS, BounceS 
+	= inOutSine, inOutCubic, inOutQuint, inOutCirc, inOutElastic, inOutQuad, inOutQuart, inOutExpo, inOutBack, inOutBounce
+	
+-------------------------------------- bg stuff ---------------------------------------------------
+	CheckoutBg:x(SCREEN_CENTER_X)
+	CheckoutBg:y(SCREEN_CENTER_Y)
+	CheckoutBg:diffuse(0.35, 0.35, 0.65, 1)
+	
+	CheckoutFog:x(SCREEN_CENTER_X)
+	CheckoutFog:y(SCREEN_CENTER_Y)
+	CheckoutFog:customtexturerect(0,0,1,1)
+	CheckoutFog:texcoordvelocity(0,0.1)
+	CheckoutFog:diffuse(0, 0, 0.5, 0.5)
+	CheckoutFog:blend('add')
+	
+-------------------------------------- definemod stuff ---------------------------------------------------
+	
+	definemod {'bgzoom','bgkick', function(zm,k)
+		CheckoutBg:zoomtowidth(SCREEN_WIDTH+zm+k)
+		CheckoutBg:zoomtoheight(SCREEN_HEIGHT+zm+k)
+		CheckoutFog:zoomtowidth(SCREEN_WIDTH+zm+k)
+		CheckoutFog:zoomtoheight(SCREEN_HEIGHT+zm+k)
+	end}
+	
+end)"
+Type = "ActorFrame"
+><children>
+	
+	<Layer File="bg/background" Name="CheckoutBg"/>
+	<Layer File="bg/cloud.png" Name="CheckoutFog"/>
+	<Layer File="nitgfan.xml"/>
+	<Layer File="sudo.xml"/>
+
+	<Layer Type = "ActorProxy" Name = "PC[1]" />
+	<Layer Type = "ActorProxy" Name = "PC[2]" />
+	<Layer Type = "ActorProxy" Name = "PJ[1]" />
+	<Layer Type = "ActorProxy" Name = "PJ[2]" />
+	<Layer Type = "ActorProxy" Name = "PP[1]" />
+	<Layer Type = "ActorProxy" Name = "PP[2]" />
+</children></Mods>
