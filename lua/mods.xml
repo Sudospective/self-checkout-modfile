@@ -49,10 +49,24 @@
 		CheckoutFog:rotationz(ppp)
 	end}
 	
+	local last_scan_pos = 0
 	definemod {'scanlinepos', 'scanlinealpha', function(y, a)
-		ScanLine:y(y)
+		ScanLine:y(-scy * 0.05 + (sh * (y * 0.011)))
 		ScanLine:diffusealpha(a * 0.01)
-		ScanSprite:diffusealpha(a * 0.009)
+		if ScanLine:GetY() > last_scan_pos then
+			ScanLine:fadetop(0.5)
+			ScanLine:fadebottom(0.5)
+		else
+			ScanLine:fadetop(0.5)
+			ScanLine:fadebottom(0.5)
+		end
+		last_scan_pos = ScanLine:GetY()
+		--ScanSprite:diffusealpha(a * 0.005)
+		P1Sprite:diffusealpha(a * 0.01)
+		P2Sprite:diffusealpha(a * 0.01)
+		P1Sprite:cropbottom(y * 0.01)
+		P2Sprite:croptop(1 - (y * 0.01))
+
 	end}
 
 -------------------------------------- fg stuff ---------------------------------------------------
@@ -60,24 +74,50 @@
 	aft(ScanAFT)
 	sprite(ScanSprite)
 	aftsprite(ScanAFT, ScanSprite)
-	ScanSprite:diffusealpha(0)
+	ScanSprite:diffusealpha(0.25)
+	BG1:SetTarget(CheckoutBGFrame)
+	BG2:SetTarget(CheckoutBGFrame)
+	ScanP1:SetTarget(P[1])
+	ScanP2:SetTarget(P[2])
+
+	aft(P1AFT)
+	aft(P2AFT)
+	sprite(P1Sprite)
+	sprite(P2Sprite)
+	aftsprite(P1AFT, P1Sprite)
+	aftsprite(P2AFT, P2Sprite)
 
 	
 end)"
 Type = "ActorFrame"
 ><children>
+
+	<Layer Type = "ActorProxy" Name = "BG2" />
+	<Layer Type = "ActorProxy" Name = "ScanP2" />
+	<Layer Type = "ActorFrameTexture" Name = "P2AFT" />
+	<Layer Type = "ActorProxy" Name = "BG1" />
+	<Layer Type = "ActorProxy" Name = "ScanP1" />
+	<Layer Type = "ActorFrameTexture" Name = "P1AFT" />
 	
-	<Layer File="bg/background" Name="CheckoutBg"/>
-	<Layer File="bg/cloud.png" Name="CheckoutFog"/>
+	<Layer Type = "ActorFrame" Name = "CheckoutBGFrame">
+		<children>
+		<Layer File="bg/background" Name="CheckoutBg"/>
+		<Layer File="bg/cloud.png" Name="CheckoutFog"/>
+		</children>
+	</Layer>
+
 	<Layer File="nitgfan.xml"/>
 	<Layer File="sudo.xml"/>
 
-	<Layer Type = "ActorProxy" Name = "PC[1]" />
-	<Layer Type = "ActorProxy" Name = "PC[2]" />
-	<Layer Type = "ActorProxy" Name = "PJ[1]" />
-	<Layer Type = "ActorProxy" Name = "PJ[2]" />
 	<Layer Type = "ActorProxy" Name = "PP[1]" />
 	<Layer Type = "ActorProxy" Name = "PP[2]" />
+	<Layer Type = "Sprite" Name = "P1Sprite" />
+	<Layer Type = "Sprite" Name = "P2Sprite" />
+	<Layer Type = "ActorProxy" Name = "PC[1]" />
+	<Layer Type = "ActorProxy" Name = "PJ[1]" />
+	<Layer Type = "ActorProxy" Name = "PC[2]" />
+	<Layer Type = "ActorProxy" Name = "PJ[2]" />
+
 	<Layer Type = "Sprite" Name = "ScanSprite" />
 	<Layer
 		Type = "Quad"
@@ -85,7 +125,7 @@ Type = "ActorFrame"
 		OnCommand = "%xero(function(self)
 			self:xy(scx, 0)
 			self:SetWidth(sw)
-			self:SetHeight(1)
+			self:SetHeight(32)
 			self:diffuse(0, 1, 0, 1)
 		end)"
 	/>
