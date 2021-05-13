@@ -88,7 +88,6 @@
 		ease {beat, 1, tri, 100, 'scanlinepos'}
 	end
 
-	-- Need something else to do here along with this...but what? ~Sudo
 	for beat = 70, 74, 2 do
 		swap {beat - 0.25, 1, inOutExpo, 'urld', plr = 2}
 		swap {beat + 0.25, 1, inOutExpo, 'dlru', plr = 1}
@@ -96,8 +95,10 @@
 		swap {beat + 1.25, 1, inOutExpo, 'ldur', plr = 1}
 	end
 
-	ease {71.5, 1, inOutExpo, 100, 'reverse'}
-	ease {73.5, 1, inOutExpo, 0, 'reverse'}
+	set {71.5, 100, 'reverse', plr = 1}
+	set {72, 100, 'reverse', plr = 2}
+	set {73.5, 0, 'reverse', plr = 1}
+	set {74, 0, 'reverse', plr = 2}
 
 	swap {75.5, 0.5, inOutExpo, 'ldur'}
 	swap {76, 1, flip(inExpo), 'drlu'}
@@ -115,7 +116,8 @@
 	end
 
 	ease {77.5, 1, inOutExpo, 360, 'rotationz', 100, 'reverse'}
-	ease {79.5, 1, inOutExpo, 0, 'reverse'}
+	set {79.5, 0, 'reverse', plr = 1}
+	set {80, 0, 'reverse', plr = 2}
 	
 	swap {81.5, 0.5, inOutExpo, 'ldur'}
 	set {81, 0, 'rotationz'}
@@ -136,8 +138,10 @@
 		swap {beat + 1.25, 1, inOutExpo, 'ldur', plr = 1}
 	end
 
-	ease {87.5, 1, inOutExpo, 100, 'reverse'}
-	ease {89.5, 1, inOutExpo, 0, 'reverse'}
+	set {87.5, 100, 'reverse', plr = 1}
+	set {88, 100, 'reverse', plr = 2}
+	set {89.5, 0, 'reverse', plr = 1}
+	set {90, 0, 'reverse', plr = 2}
 
 	swap {91.5, 0.5, inOutExpo, 'ldur'}
 
@@ -177,17 +181,17 @@
 
 	ease {94, 2, flip(outCirc), 25, 'reverse'}
 
-	ease {94, 1, pop, -scx * 0.35, 'x', -15, 'rotationy', 20, 'flip', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', 30, 'rotationx', -1000, 'tinyz', 400, 'zoomz'}
-	ease {94.5, 1, pop, scx * 0.35, 'x', 15, 'rotationy', 20, 'flip', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', 20, 'rotationx', -1000, 'tinyz', 400, 'zoomz'}
-	ease {95, 1, pop, -scx * 0.25, 'x', -15, 'rotationy', 20, 'flip', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', 10, 'rotationx', -1000, 'tinyz', 400, 'zoomz'}
-	ease {95.5, 1, pop, scx * 0.25, 'x', 15, 'rotationy', 20, 'flip', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', 5, 'rotationx', -1000, 'tinyz', 400, 'zoomz'}
-	ease {96, 2, pop, 75, 'invert', 20, 'flip', -scx * 0.2, 'x', -15, 'rotationy', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', -1000, 'tinyz', 400, 'zoomz'}
-	ease {97, 2, pop, 75, 'invert', 20, 'flip', scx * 0.2, 'x', 15, 'rotationy', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', -1000, 'tinyz', 400, 'zoomz'}
+	ease {94, 1, pop, -scx * 0.35, 'x', -15, 'rotationy', 20, 'flip', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', 30, 'rotationx', -1000, 'tinyz', 400, 'zoomz', 1.25, 'xmod'}
+	ease {94.5, 1, pop, scx * 0.35, 'x', 15, 'rotationy', 20, 'flip', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', 20, 'rotationx', -1000, 'tinyz', 400, 'zoomz', 1.25, 'xmod'}
+	ease {95, 1, pop, -scx * 0.25, 'x', -15, 'rotationy', 20, 'flip', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', 10, 'rotationx', -1000, 'tinyz', 400, 'zoomz', 1.25, 'xmod'}
+	ease {95.5, 1, pop, scx * 0.25, 'x', 15, 'rotationy', 20, 'flip', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', 5, 'rotationx', -1000, 'tinyz', 400, 'zoomz', 1.25, 'xmod'}
+	ease {96, 2, pop, 75, 'invert', 20, 'flip', -scx * 0.2, 'x', -15, 'rotationy', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', -1000, 'tinyz', 400, 'zoomz', 1, 'xmod'}
+	ease {97, 2, pop, 75, 'invert', 20, 'flip', scx * 0.2, 'x', 15, 'rotationy', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', -1000, 'tinyz', 400, 'zoomz', 1, 'xmod'}
 
 	ease {98, 1, outExpo, 1080, 'rotationy', -15, 'rotationx'}
-	ease {98, 2, inOutExpo, 100, 'flip', 0, 'rotationx', 1, 'xmod', 50, 'brake', 150, 'bumpy', 25, 'reverse'}
+	ease {98, 2, inOutExpo, 100, 'flip', 0, 'rotationx', 1, 'xmod', 50, 'brake', 150, 'bumpy', 25, 'reverse', 10000, 'tinyz'}
 	ease {99, 2, inverse, 200, 'mini'}
-	ease {99, 1, inExpo, 0, 'flip', 1.75, 'xmod', 0, 'brake', 0, 'bumpy', 0, 'reverse'}
+	ease {99, 1, inExpo, 0, 'flip', 1.75, 'xmod', 0, 'brake', 0, 'bumpy', 0, 'reverse', 0, 'tinyz'}
 
 	bgfade(100, 'nitgfan')
 	surface(100)
@@ -225,7 +229,154 @@
 	ease {132, 2, flip(outExpo), -5000, 'tinyz', 50, 'flip'}
 	ease {132, 2, flip(inQuad), 30 * math.pi/1.8, 'confusionxoffset'}
 	ease {132, 2, flip(outElastic), 1500, 'x', 500, 'spiralx'}
+	set {132, 0, 'rotationy', 0, 'scanlinealpha'}
 	
+	for beat = 134, 154, 2 do
+		ease {beat, 0.5, linear, 100, 'scanlinepos'}
+		ease {beat + 1, 0.5, linear, 0, 'scanlinepos'}
+	end
+
+
+	for beat = 134, 139.5, 0.5 do
+		ease {beat, 0.25, pop, 100, 'tipsy'}
+		ease {beat + 0.25, 0.25, pop, -100, 'tipsy'}
+	end
+	for beat = 134, 138, 2 do
+		add {beat, 1, outBack, -360 * math.pi/1.8, 'confusionyoffset'}
+		add {beat + 1, 1, outBack, -360 * math.pi/1.8, 'confusionyoffset'}
+		ease {beat + 0.5, 1, pop, 25, 'bumpyxoffset', 50, 'tiny', 100, 'drunk'}
+		ease {beat + 0.5, 1, pop, 50, 'bumpyz', 50, 'bumpyx', plr = 1}
+		ease {beat + 0.5, 1, pop, -50, 'bumpyz', -50, 'bumpyx', plr = 2}
+		ease {beat + 1, 1, flip(outCirc), 1000, 'drunk', plr = 1}
+		ease {beat + 1, 1, flip(outCirc), -1000, 'drunk', plr = 2}
+		set {beat, 100, 'scanlinealpha', 100, 'reverse', plr = 2}
+		set {beat + 0.5, 0, 'scanlinealpha', 100, 'reverse', plr = 1}
+		set {beat + 1, 100, 'scanlinealpha', 0, 'reverse', plr = 1}
+		set {beat + 1.5, 0, 'scanlinealpha', 0, 'reverse', plr = 2}
+		ease {beat, 1, flip(outCirc), 110, 'zoomx', 90, 'zoomy'}
+		ease {beat + 1, 1, flip(outCirc), 110, 'zoomx', 90, 'zoomy'}
+		ease {beat, 0.25, linear, -5000, 'tinyz'}
+		ease {beat + 0.5, 0.25, linear, 2500, 'tinyz'}
+		ease {beat + 0.75, 0.25, linear, -2500, 'tinyz'}
+		ease {beat + 1, 0.25, linear, 5000, 'tinyz'}
+		ease {beat + 1.5, 0.25, linear, 0, 'tinyz'}
+	end
+	---[[
+	ease {134, 1, outExpo, -150, 'movex', -10, 'rotationy', -10, 'rotationz'}
+	ease {135, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
+	ease {136, 1, outExpo, 150, 'movex', 10, 'rotationy', 10, 'rotationz'}
+	ease {137, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
+	ease {138, 1, outExpo, -150, 'movex', -10, 'rotationy', -10, 'rotationz'}
+	ease {139, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
+	--]]
+
+	--ease {140, 0.5, linear, 180, 'rotationy', -180 * math.pi/1.8, 'confusionyoffset'}
+	--ease {141, 0.5, linear, 0, 'rotationy', 0 * math.pi/1.8, 'confusionyoffset'}
+
+	--ease {140, 2, bounce, -150, 'mini'}
+	ease {140, 1, bounce, -150, 'mini', 15, 'rotationz'}
+	ease {141, 1, bounce, -150, 'mini', -15, 'rotationz'}
+	
+	local v = 0
+	local k2 = -1
+	func {140, 0.5, outExpo, function()
+		k2 = -k2
+		for pn = 1, #P do
+			--poptions[pn].tipsy = 100 * k2 -- fuckin poptions dont work xero dammit
+			GAMESTATE:ApplyModifiers('*-1 '..200 * k2..' tipsy')
+		end
+	end, persist = false}
+	func {140, 1, linear, 0, 1, function(p)
+		v = 1 - v
+		for pn = 1, #P do
+			--poptions[pn].rotationy = 180 * v * p
+			--poptions[pn].confusionyoffset = (-180 * math.pi/1.8) * v * p
+			GAMESTATE:ApplyModifiers('*-1 '..180 * v * p..' rotationy')
+			GAMESTATE:ApplyModifiers('*-1 '..(-180 * math.pi/1.8) * v * p..' confusionyoffset')
+		end
+	end, persist = false}
+	
+	set {140.5, 0, 'tipsy'}
+	v = 0
+	k2 = -1
+	func {141, 0.5, outExpo, function()
+		k2 = -k2
+		for pn = 1, #P do
+			--poptions[pn].tipsy = 100 * k2 -- fuckin poptions dont work xero dammit
+			GAMESTATE:ApplyModifiers('*-1 '..200 * k2..' tipsy')
+		end
+	end, persist = false}
+	func {141, 1, linear, 1, 0, function(p)
+		v = 1 - v
+		for pn = 1, #P do
+			--poptions[pn].rotationy = 180 * v * p
+			--poptions[pn].confusionyoffset = (-180 * math.pi/1.8) * v * p
+			GAMESTATE:ApplyModifiers('*-1 '..180 * v * p..' rotationy')
+			GAMESTATE:ApplyModifiers('*-1 '..(-180 * math.pi/1.8) * v * p..' confusionyoffset')
+		end
+	end, persist = false}
+	set {141.5, 0, 'tipsy'}
+
+	for beat = 142, 146.5, 0.5 do
+		ease {beat, 0.25, pop, 100, 'tipsy'}
+		ease {beat + 0.25, 0.25, pop, -100, 'tipsy'}
+	end
+	for beat = 142, 144, 2 do
+		add {beat, 1, outBack, -360 * math.pi/1.8, 'confusionyoffset'}
+		add {beat + 1, 1, outBack, -360 * math.pi/1.8, 'confusionyoffset'}
+		ease {beat + 0.5, 1, pop, 25, 'bumpyxoffset', 50, 'tiny', 100, 'drunk'}
+		ease {beat + 0.5, 1, pop, 50, 'bumpyz', 50, 'bumpyx', plr = 1}
+		ease {beat + 0.5, 1, pop, -50, 'bumpyz', -50, 'bumpyx', plr = 2}
+		ease {beat + 1, 1, flip(outCirc), 1000, 'drunk', plr = 1}
+		ease {beat + 1, 1, flip(outCirc), -1000, 'drunk', plr = 2}
+		set {beat, 100, 'scanlinealpha', 100, 'reverse', plr = 2}
+		set {beat + 0.5, 0, 'scanlinealpha', 100, 'reverse', plr = 1}
+		set {beat + 1, 100, 'scanlinealpha', 0, 'reverse', plr = 1}
+		set {beat + 1.5, 0, 'scanlinealpha', 0, 'reverse', plr = 2}
+		ease {beat, 0.25, linear, -5000, 'tinyz'}
+		ease {beat + 0.5, 0.25, linear, 2500, 'tinyz'}
+		ease {beat + 0.75, 0.25, linear, -2500, 'tinyz'}
+		ease {beat + 1, 0.25, linear, 5000, 'tinyz'}
+		ease {beat + 1.5, 0.25, linear, 0, 'tinyz'}
+	end
+	ease {142, 1, outExpo, 150, 'movex', 10, 'rotationy', 10, 'rotationz'}
+	ease {143, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
+	ease {144, 1, outExpo, -150, 'movex', -10, 'rotationy', -10, 'rotationz'}
+	ease {145, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
+
+	ease {147, 0.5, pop, 100, 'tipsy'}
+	ease {147.5, 0.5, pop, -100, 'tipsy'}
+
+
+	for beat = 150, 155.5, 0.5 do
+		ease {beat, 0.25, pop, 100, 'tipsy'}
+		ease {beat + 0.25, 0.25, pop, -100, 'tipsy'}
+	end
+	for beat = 150, 154, 2 do
+		add {beat, 1, outBack, -360 * math.pi/1.8, 'confusionyoffset'}
+		add {beat + 1, 1, outBack, -360 * math.pi/1.8, 'confusionyoffset'}
+		ease {beat + 0.5, 1, pop, 25, 'bumpyxoffset', 50, 'tiny', 100, 'drunk'}
+		ease {beat + 0.5, 1, pop, 50, 'bumpyz', 50, 'bumpyx', plr = 1}
+		ease {beat + 0.5, 1, pop, -50, 'bumpyz', -50, 'bumpyx', plr = 2}
+		ease {beat + 1, 1, flip(outCirc), 1000, 'drunk', plr = 1}
+		ease {beat + 1, 1, flip(outCirc), -1000, 'drunk', plr = 2}
+		set {beat, 100, 'scanlinealpha', 100, 'reverse', plr = 2}
+		set {beat + 0.5, 0, 'scanlinealpha', 100, 'reverse', plr = 1}
+		set {beat + 1, 100, 'scanlinealpha', 0, 'reverse', plr = 1}
+		set {beat + 1.5, 0, 'scanlinealpha', 0, 'reverse', plr = 2}
+		ease {beat, 0.25, linear, -5000, 'tinyz'}
+		ease {beat + 0.5, 0.25, linear, 2500, 'tinyz'}
+		ease {beat + 0.75, 0.25, linear, -2500, 'tinyz'}
+		ease {beat + 1, 0.25, linear, 5000, 'tinyz'}
+		ease {beat + 1.5, 0.25, linear, 0, 'tinyz'}
+	end
+	ease {150, 1, outExpo, 150, 'movex', 10, 'rotationy', 10, 'rotationz'}
+	ease {151, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
+	ease {152, 1, outExpo, -150, 'movex', -10, 'rotationy', -10, 'rotationz'}
+	ease {153, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
+	ease {154, 1, outExpo, 150, 'movex', 10, 'rotationy', 10, 'rotationz'}
+	ease {155, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
+
 	surface(148)
 	
 	ease {147.5, 3, bell, 0, 'reverse', -100, 'tiny', 10, 'flip', 60, 'rotationx', 400, 'zoomz', 20, 'tornado', 800, 'parabolaz', 20, 'bumpy', 50, 'tornadoperiod', 2, 'xmod', -150, 'wave'}
@@ -233,9 +384,26 @@
 	ease {148, 2, flip(inQuad), -30 * math.pi/1.8, 'confusionxoffset'}
 	ease {148, 2, flip(outElastic), 1500, 'x', 500, 'spiralx'}
 
-	func {132, function()
-		SCREENMAN:SystemMessage('subo gon do a thing here i promise')
-	end}
+	set {160,
+		50, 'movez0',
+		-150, 'movez1',
+		150, 'movez2',
+		-50, 'movez3',
+		0, 'zoomz',
+		0, 'rotationy',
+		0, 'confusionyoffset'
+	}
+	ease {160, 0.5, outCirc, -100, 'flip', 200, 'zoomz'}
+	ease {160.5, 3.5, inOutSine, 0, 'flip',0, 'zoomz'}
+	ease {160, 4, pop, 40, 'reverse'}
+	ease {160, 4, flip(outQuad), -2160, 'rotationy', 2160 * math.pi/1.8, 'confusionyoffset'}
+	set {164,
+		0, 'movez0',
+		0, 'movez1',
+		0, 'movez2',
+		0, 'movez3',
+		100, 'zoomz'
+	}
 
 	bgfade(162, 'nitgfan')
 	

@@ -25,26 +25,28 @@
 
 	-- Call this EXACTLY on the beat.
 	function bgfade(beat, modder)
-		local color = {1, 1, 1}
-		local fog = {1, 1, 1}
+		local color
+		local fog
 		if string.lower(modder) == 'nitgfan' then
 			color = nitgfan_bg
 			fog = nitgfan_fog
 		elseif string.lower(modder) == 'sudo' then
 			color = sudo_bg
 			fog = sudo_fog
+		elseif string.lower(modder) == 'duo' then
+			color = avg_bg
+			fog = avg_fog
+		else
+			color = {1, 1, 1}
+			fog = {1, 1, 1}
 		end
 		func {beat - 1, function()
 			local spb = 1 / GAMESTATE:GetCurBPS()
-			CheckoutBg:accelerate(1 * spb)
-			CheckoutBg:diffuse(avg_bg[1], avg_bg[2], avg_bg[3], 1)
-			CheckoutBg:decelerate(1 * spb)
+			CheckoutBg:linear(2 * spb)
 			CheckoutBg:diffuse(color[1], color[2], color[3], 1)
 
-			CheckoutFog:accelerate(1 * spb)
-			CheckoutFog:diffuse(avg_fog[1], avg_fog[2], avg_fog[3], 1)
-			CheckoutFog:decelerate(1 * spb)
-			CheckoutFog:diffuse(fog[1], fog[2], fog[3], 1)
+			CheckoutFog:linear(2 * spb)
+			CheckoutFog:diffuse(fog[1], fog[2], fog[3], 0.5)
 		end, persist = false}
 	end
 
@@ -95,22 +97,26 @@
 	
 	local last_scan_pos = 0
 	definemod {'scanlinepos', 'scanlinealpha', function(y, a)
+		last_scan_pos = ScanLine:GetY()
 		ScanLine:y(-64 + (sh * (y * 0.011)) + 32 * (a * 0.01))
 		ScanLine:diffusealpha(a * 0.01)
-		if ScanLine:GetY() > last_scan_pos then
-			ScanLine:fadetop(0.5)
-			ScanLine:fadebottom(0.5)
-		else
-			ScanLine:fadetop(0.5)
-			ScanLine:fadebottom(0.5)
-		end
-		last_scan_pos = ScanLine:GetY()
-		--ScanSprite:diffusealpha(a * 0.005)
+		ScanLine:fadetop(1)
+		ScanLine:fadebottom(1)
+		ScanSprite:diffusealpha(a * 0.005)
 		P1Sprite:diffusealpha(a * 0.01)
 		P2Sprite:diffusealpha(a * 0.01)
 		P1Sprite:cropbottom(y * 0.01)
 		P2Sprite:croptop(1 - (y * 0.01))
 
+		GAMESTATE:ApplyModifiers('*-1 '..a..' hidden, *-1 '..(-100 + (y * 2)) * a..' hiddenoffset', 1)
+		GAMESTATE:ApplyModifiers('*-1 '..a..' sudden, *-1 '..(-100 + (y * 2)) * a..' suddenoffset', 2)
+
+		--[[
+		poptions[1].hidden = a
+		poptions[1].hiddenoffset = (-100 + (y * 2))
+		poptions[2].sudden = a
+		poptions[2].suddenoffset = (-100 + (y * 2))
+		--]]
 	end}
 
 -------------------------------------- fg stuff ---------------------------------------------------
