@@ -39,6 +39,16 @@
 		CheckoutFog:zoom(1.5+zm+k)
 	end}
 	
+	definemod {'bgrotx','bgroty','bgrotz', function(p,pp,ppp)
+		CheckoutBg:rotationx(p)
+		CheckoutBg:rotationy(pp)
+		CheckoutBg:rotationz(ppp)
+		
+		CheckoutFog:rotationx(p)
+		CheckoutFog:rotationy(pp)
+		CheckoutFog:rotationz(ppp)
+	end}
+	
 	definemod {'scanlinepos', 'scanlinealpha', function(y, a)
 		ScanLine:y(y)
 		ScanLine:diffusealpha(a * 0.01)

@@ -7,7 +7,7 @@
 	
 	ease2 (4,1,CubicS,0,'mini')
 	
-	ease {4, 32-4, inExpo, 1.75, 'xmod',0,'reverse'}
+	ease {4, 32-4, inExpo, 2, 'xmod',0,'reverse'}
 	
 	ease {4, 32-4, flip(linear), 360*4, 'rotationy2'}
 	ease {4, 32-4, flip(inSine), 360*1, 'rotationx2'}
@@ -71,6 +71,107 @@
 		mod_kick(i,0.5,0, 50,'y','Cubic','Cubic')
 	f = f * -1
 	end
+	
+	ease2 (98,1,CircS,0.5,'bgzoom')
+	ease2 (100,1,CircS,-0.5,'bgzoom')
+	
+	local f = 1
+	for i=102,102+4,2 do
+		ease2 (i,0.75,ExpoS,300,'z')
+		ease2 (i+1,1,ExpoS,0,'z')
+		
+		ease2 (i,0.75,ExpoS,100,'flip')
+		ease2 (i+1,1,ExpoS,0,'flip')
+		
+		ease2 (i,1,BackS,-250,'tinyz')
+		ease2 (i+1,1,BackS,0,'tinyz')
+		
+		ease2 (i+2,0.5,CubicS,0,'x')
+		ease2 (i+1,0.5,CubicS,100*f,'x')
+		ease2 (i+1.5,0.5,CubicS,-100*f,'x')
+		
+		ease2 (i+1,1,QuartS,20*f,'rotationz')
+		ease2 (i+2,1,QuartS,0,'rotationz')
+		
+		mod_kick(i,1,100, 300,'zoomx','Expo','Back')
+		
+		ease2 (i,1,ExpoS,0.5,'bgzoom')
+		ease2 (i+1,1,ExpoS,0,'bgzoom')
+		
+		ease2 (i,1,ExpoS,-20*f,'bgrotz')
+		ease2 (i+1,1,ExpoS,0,'bgrotz')
+		
+	f = f * -1
+	end
+	
+	local f = 1
+	for i=110,110+2,2 do
+		ease2 (i,0.75,ExpoS,300,'z')
+		ease2 (i+1,1,ExpoS,0,'z')
+		
+		ease2 (i,0.75,ExpoS,100,'flip')
+		ease2 (i+1,1,ExpoS,0,'flip')
+		
+		ease2 (i,1,BackS,-250,'tinyz')
+		ease2 (i+1,1,BackS,0,'tinyz')
+		
+		ease2 (i+2,0.5,CubicS,0,'x')
+		ease2 (i+1,0.5,CubicS,100*f,'x')
+		ease2 (i+1.5,0.5,CubicS,-100*f,'x')
+		
+		ease2 (i+1,1,QuartS,-20*f,'rotationz')
+		ease2 (i+2,1,QuartS,0,'rotationz')
+		
+		mod_kick(i,1,100, 300,'zoomx','Expo','Back')
+		
+		ease2 (i,1,ExpoS,0.5,'bgzoom')
+		ease2 (i+1,1,ExpoS,0,'bgzoom')
+		
+		ease2 (i,1,ExpoS,20*f,'bgrotz')
+		ease2 (i+1,1,ExpoS,0,'bgrotz')
+		
+	f = f * -1
+	end
+	
+	local f = 1
+	for i=118,118+4,2 do
+		ease2 (i,0.75,ExpoS,300,'z')
+		ease2 (i+1,1,ExpoS,0,'z')
+		
+		ease2 (i,0.75,ExpoS,100,'flip')
+		ease2 (i+1,1,ExpoS,0,'flip')
+		
+		ease2 (i,1,BackS,-250,'tinyz')
+		ease2 (i+1,1,BackS,0,'tinyz')
+		
+		ease2 (i+2,0.5,CubicS,0,'x')
+		ease2 (i+1,0.5,CubicS,100*f,'x')
+		ease2 (i+1.5,0.5,CubicS,-100*f,'x')
+		
+		ease2 (i+1,1,QuartS,20*f,'rotationz')
+		ease2 (i+2,1,QuartS,0,'rotationz')
+		
+		mod_kick(i,1,100, 300,'zoomx','Expo','Back')
+		
+		ease2 (i,1,ExpoS,0.5,'bgzoom')
+		ease2 (i+1,1,ExpoS,0,'bgzoom')
+		
+		ease2 (i,1,ExpoS,-20*f,'bgrotz')
+		ease2 (i+1,1,ExpoS,0,'bgrotz')
+		
+	f = f * -1
+	end
+	
+	ease {102, 1.5, QuartS, 100, 'reverse'}
+	ease {104, 1.5, QuartS, 0, 'reverse'}
+	ease {106, 1.5, QuartS, 100, 'reverse'}
+	ease {110, 1.5, QuartS, 0, 'reverse'}
+	ease {112, 1.5, QuartS, 100, 'reverse'}
+	ease {118, 1.5, QuartS, 0, 'reverse'}
+	ease {120, 1.5, QuartS, 100, 'reverse'}
+	ease {122, 1.5, QuartS, 0, 'reverse'}
+	
+	
 	
 end)"
 Type = "ActorFrame"
