@@ -16,6 +16,8 @@
 	set {0, 500, 'zoomz'}
 	
 	
+	ease {32.5, 2.5, flip(SineS), 360*2, 'blacksphere'}
+	
 	ease2 (4,1,CubicS,0,'mini')
 	
 	ease {4, 32-4, inExpo, 2, 'xmod',0,'reverse'}
@@ -329,6 +331,8 @@
 	ease2 (208,1,ExpoS,100,'scanlinepos')
 	ease2 (210,1,ExpoS,0,'scanlinepos')
 --------------------- wibble wubble ----------------------------------------
+	
+	set {292, 0, 'rotationy'}
 	ease2 (295.5,0.75,inverse,500,'movex3')
 	ease2 (295.75,0.75,inverse,500,'movex2')
 	ease2 (296,0.75,inverse,500,'movex1')
@@ -353,7 +357,7 @@
 	ease2 (313.75,0.75,inverse,-500,'movex2')
 	ease2 (314,0.75,inverse,-500,'movex1')
 	
-	ease2 (292,1,CubicS,100,'reverse',2)
+	--ease2 (292,1,CubicS,100,'reverse',2)
 	
 	ease2 (292,1,CubicS,300,'zoomz')
 	
@@ -378,58 +382,71 @@
 	
 	local f = 1
 	for i=294,294+5 do
-		mod_kick(i,1,0, 300,'z','Cubic','Cubic')
+		mod_kick(i,1,0, 500,'z','Cubic','Cubic')
 		mod_kick(i,1,0, 0.3,'bgkick','Cubic','Cubic')
 		mod_bounce(i,1,0, 50,'brake','Cubic','Cubic')
 		mod_kick(i,1,0, -1000,'tinyz','Cubic','Cubic')
 		add2 (i,1,ExpoS,180,'bgrotx')
+		mod_kick(i,1,100, 200,'zoomx','Cubic','Cubic')
 	f = f * -1
 	end
 	
 	local f = 1
 	for i=294,294+5,2 do
 		mod_bounce(i,2,0, 30*f,'rotationz','Quart','Quart')
-		mod_bounce(i,1,0, 50*f,'rotationx','Quart','Sine')
-		mod_bounce(i+1,1,0, 50*f,'rotationx','Quart','Sine')
+		mod_bounce(i,1,0, -30*f,'rotationx','Quart','Sine')
+		mod_bounce(i+1,1,0, -30*f,'rotationx','Quart','Sine')
+		
+		set {i, 100, 'reverse', plr = 2}
+		set {i+1, 0, 'reverse', plr = 2}
 	f = f * -1
 	end
 	
 	local f = 1
 	for i=302,302+3 do
-		mod_kick(i,1,0, 300,'z','Cubic','Cubic')
+		mod_kick(i,1,0, 500,'z','Cubic','Cubic')
 		mod_kick(i,1,0, 0.3,'bgkick','Cubic','Cubic')
 		mod_bounce(i,1,0, 50,'brake','Cubic','Cubic')
 		mod_kick(i,1,0, -1000,'tinyz','Cubic','Cubic')
 		add2 (i,1,ExpoS,180,'bgrotx')
+		mod_kick(i,1,100, 200,'zoomx','Cubic','Cubic')
 	f = f * -1
 	end
 	
 	local f = 1
 	for i=302,302+3,2 do
 		mod_bounce(i,2,0, 30*f,'rotationz','Quart','Quart')
-		mod_bounce(i,1,0, 50*f,'rotationx','Quart','Sine')
-		mod_bounce(i+1,1,0, -50*f,'rotationx','Quart','Sine')
+		mod_bounce(i,1,0, 30*f,'rotationx','Quart','Sine')
+		mod_bounce(i+1,1,0, 30*f,'rotationx','Quart','Sine')
+		set {i, 100, 'reverse', plr = 2}
+		set {i+1, 0, 'reverse', plr = 2}
 	f = f * -1
 	end
 	
 	local f = 1
 	for i=310,310+5 do
-		mod_kick(i,1,0, 300,'z','Cubic','Cubic')
+		mod_kick(i,1,0, 500,'z','Cubic','Cubic')
 		mod_kick(i,1,0, 0.3,'bgkick','Cubic','Cubic')
 		mod_bounce(i,1,0, 50,'brake','Cubic','Cubic')
 		mod_kick(i,1,0, -1000,'tinyz','Cubic','Cubic')
 		add2 (i,1,ExpoS,180,'bgrotx')
+		mod_kick(i,1,100, 200,'zoomx','Cubic','Cubic')
 	f = f * -1
 	end
 	
 	local f = 1
 	for i=310,310+5,2 do
 		mod_bounce(i,2,0, -30*f,'rotationz','Quart','Quart')
-		mod_bounce(i,1,0, -50*f,'rotationx','Quart','Sine')
-		mod_bounce(i+1,1,0, -50*f,'rotationx','Quart','Sine')
+		mod_bounce(i,1,0, -30*f,'rotationx','Quart','Sine')
+		mod_bounce(i+1,1,0, -30*f,'rotationx','Quart','Sine')
+		set {i, 100, 'reverse', plr = 2}
+		set {i+1, 0, 'reverse', plr = 2}
 	f = f * -1
 	end
 	
+	ease {294, 6, bounce, 50, 'rotationy'}
+	ease {302, 4, bounce, -50, 'rotationy'}
+	ease {310, 6, bounce, 50, 'rotationy'}
 	
 	
 end)"
