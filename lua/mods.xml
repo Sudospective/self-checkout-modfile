@@ -13,6 +13,50 @@
 	
 	local SineS, CubicS, QuintS, CircS, ElasticS, QuadS, QuartS, ExpoS, BackS, BounceS 
 	= inOutSine, inOutCubic, inOutQuint, inOutCirc, inOutElastic, inOutQuad, inOutQuart, inOutExpo, inOutBack, inOutBounce
+
+	nitgfan_bg = {0.35, 0.35, 0.65}
+	nitgfan_fog = {0, 0, 0.5}
+
+	sudo_bg = {0.65, 0.35, 0.65}
+	sudo_fog = {0.5, 0, 0.5}
+
+	avg_bg = {(nitgfan_bg[1] + sudo_bg[1]) * 0.5, (nitgfan_bg[2] + sudo_bg[2]) * 0.5, (nitgfan_bg[3] + sudo_bg[3]) * 0.5}
+	avg_fog = {(nitgfan_fog[1] + sudo_fog[1]) * 0.5, (nitgfan_fog[2] + sudo_fog[2]) * 0.5, (nitgfan_fog[3] + sudo_fog[3]) * 0.5}
+
+	-- Call this EXACTLY on the beat.
+	function bgfade(beat, modder)
+		local color = {1, 1, 1}
+		local fog = {1, 1, 1}
+		if string.lower(modder) == 'nitgfan' then
+			color = nitgfan_bg
+			fog = nitgfan_fog
+		elseif string.lower(modder) == 'sudo' then
+			color = sudo_bg
+			fog = sudo_fog
+		end
+		func {beat - 1, function()
+			local spb = 1 / GAMESTATE:GetCurBPS()
+			CheckoutBg:accelerate(1 * spb)
+			CheckoutBg:diffuse(avg_bg[1], avg_bg[2], avg_bg[3], 1)
+			CheckoutBg:decelerate(1 * spb)
+			CheckoutBg:diffuse(color[1], color[2], color[3], 1)
+
+			CheckoutFog:accelerate(1 * spb)
+			CheckoutFog:diffuse(avg_fog[1], avg_fog[2], avg_fog[3], 1)
+			CheckoutFog:decelerate(1 * spb)
+			CheckoutFog:diffuse(fog[1], fog[2], fog[3], 1)
+		end, persist = false}
+	end
+
+	function surface(beat)
+		func {beat, 2, outCirc, 1, 0, function(p)
+			self:vibrate()
+			self:effectmagnitude(100 * p, 100 * p, 0)
+		end}
+		func {beat + 2, function()
+			self:stopeffect()
+		end}
+	end
 	
 -------------------------------------- bg stuff ---------------------------------------------------
 
@@ -51,7 +95,7 @@
 	
 	local last_scan_pos = 0
 	definemod {'scanlinepos', 'scanlinealpha', function(y, a)
-		ScanLine:y(-scy * 0.05 + (sh * (y * 0.011)))
+		ScanLine:y(-64 + (sh * (y * 0.011)) + 32 * (a * 0.01))
 		ScanLine:diffusealpha(a * 0.01)
 		if ScanLine:GetY() > last_scan_pos then
 			ScanLine:fadetop(0.5)
@@ -70,6 +114,8 @@
 	end}
 
 -------------------------------------- fg stuff ---------------------------------------------------
+
+	self:fov(140)
 
 	aft(ScanAFT)
 	sprite(ScanSprite)

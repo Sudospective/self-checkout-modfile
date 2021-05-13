@@ -61,8 +61,11 @@
 	ease {65, 1, flip(outQuart), 200, 'tipsy'}
 	
 	ease {64, 4, inSine, 1, 'bgzoom'}
+	-- I did some BG stuff here, oops ~Sudo
+	--[[
 	ease2 (68,1,CircS,-0.5,'bgzoom')
 	ease2 (70,1,CircS, 0,'bgzoom')
+	]]
 	
 	ease2 (60,1,CircS,100,'reverse')
 	ease2 (61,1,CircS,0,'reverse')
