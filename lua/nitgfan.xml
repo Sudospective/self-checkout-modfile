@@ -282,8 +282,12 @@
 	
 	ease {196, 218-196, QuartS, 50, 'brake'}
 	ease {196, 218-196, QuartS, 100, 'wave'}
-	
 	ease {196, 218-196, QuartS, 0.5, 'bgzoom'}
+	
+	ease2 (220,1,ExpoS,0,'wave')
+	ease2 (220,1,ExpoS,0,'brake')
+	ease2 (220,1,ExpoS,0,'bgzoom')
+	ease2 (220,1,ExpoS,0,'rotationx')
 	
 	local f = 1
 	for i=196,210,2 do
