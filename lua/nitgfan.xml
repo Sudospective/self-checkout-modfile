@@ -319,6 +319,11 @@
 	f = f * -1
 	end
 	
+	-- you dropped this king ~Sudo
+	set {196, 100, 'scanlinealpha'}
+	set {294, 100, 'scanlinealpha'}
+	set {300, 100, 'scanlinealpha'}
+	
 	ease2 (212,1,ExpoS,0,'rotationz')
 	
 	ease2 (198,1,ExpoS,100,'scanlinepos')
