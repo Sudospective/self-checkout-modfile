@@ -81,8 +81,13 @@
 		ease2 (i,0.75,ExpoS,300,'z')
 		ease2 (i+1,1,ExpoS,0,'z')
 		
-		ease2 (i,0.75,ExpoS,100,'flip')
-		ease2 (i+1,1,ExpoS,0,'flip')
+		ease2 (i,0.5,CubicS,100,'flip')
+		ease2 (i+0.5,0.25,CubicS,0,'flip')
+		ease2 (i+0.75,0.25,CubicS,100,'flip')
+		ease2 (i+1,0.5,CubicS,0,'flip')
+		
+		ease2 (i+1.5,0.5,CubicS,100,'invert')
+		ease2 (i+2,0.5,CubicS,0,'invert')
 		
 		ease2 (i,1,BackS,-250,'tinyz')
 		ease2 (i+1,1,BackS,0,'tinyz')
@@ -110,8 +115,13 @@
 		ease2 (i,0.75,ExpoS,300,'z')
 		ease2 (i+1,1,ExpoS,0,'z')
 		
-		ease2 (i,0.75,ExpoS,100,'flip')
-		ease2 (i+1,1,ExpoS,0,'flip')
+		ease2 (i,0.5,CubicS,100,'flip')
+		ease2 (i+0.5,0.25,CubicS,0,'flip')
+		ease2 (i+0.75,0.25,CubicS,100,'flip')
+		ease2 (i+1,0.5,CubicS,0,'flip')
+		
+		ease2 (i+1.5,0.5,CubicS,100,'invert')
+		ease2 (i+2,0.5,CubicS,0,'invert')
 		
 		ease2 (i,1,BackS,-250,'tinyz')
 		ease2 (i+1,1,BackS,0,'tinyz')
@@ -139,8 +149,13 @@
 		ease2 (i,0.75,ExpoS,300,'z')
 		ease2 (i+1,1,ExpoS,0,'z')
 		
-		ease2 (i,0.75,ExpoS,100,'flip')
-		ease2 (i+1,1,ExpoS,0,'flip')
+		ease2 (i,0.5,CubicS,100,'flip')
+		ease2 (i+0.5,0.25,CubicS,0,'flip')
+		ease2 (i+0.75,0.25,CubicS,100,'flip')
+		ease2 (i+1,0.5,CubicS,0,'flip')
+		
+		ease2 (i+1.5,0.5,CubicS,100,'invert')
+		ease2 (i+2,0.5,CubicS,0,'invert')
 		
 		ease2 (i,1,BackS,-250,'tinyz')
 		ease2 (i+1,1,BackS,0,'tinyz')
@@ -171,6 +186,16 @@
 	ease {118, 1.5, QuartS, 0, 'reverse'}
 	ease {120, 1.5, QuartS, 100, 'reverse'}
 	ease {122, 1.5, QuartS, 0, 'reverse'}
+	
+	
+	ease2 (108,1,CubicS,-1500,'z')
+	ease2 (109,1,CubicS,0,'z')
+	
+	ease2 (108,1,CubicS,-5000,'tinyz')
+	ease2 (109,1,CubicS,0,'tinyz')
+	
+	mod_bounce(108,1,100, 150,'zoomx','Cubic','Cubic')
+	mod_bounce(109,1,100, 150,'zoomy','Cubic','Cubic')
 	
 ------------------- buildup 2 --------------------------------------
 	
