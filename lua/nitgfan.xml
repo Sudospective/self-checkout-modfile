@@ -263,6 +263,19 @@
 	ease2 (127.5,0.5,SineS,-200,'drunk')
 	ease2 (128,0.5,CubicS,0,'drunk')
 	
+	ease2 (130,1,CircS,-50,'rotationx')
+	ease2 (131,1,CircS,50,'rotationx')
+	ease2 (132,1,CircS, 0,'rotationx')
+	ease2 (130,1,CircS,-300,'movez')
+	ease2 (132,1,CircS, 0,'movez')
+	
+	ease2 (131,1,CircS,-300,'mini')
+	ease2 (132,1,CircS, 0,'mini')
+	
+	mod_bounce(130,2,0, 100,'brake','Cubic','Cubic')
+	
+	mod_bounce(130,2,0, -1000,'tinyz','Cubic','Cubic')
+	
 ------------------- buildup 2 --------------------------------------
 	
 	ease {196, 218-196, QuartS, 30, 'rotationx'}
