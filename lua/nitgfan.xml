@@ -279,6 +279,24 @@
 	mod_bounce(130,2,0, -1000,'tinyz','Cubic','Cubic')
 	
 ------------------- buildup 2 --------------------------------------
+	ease2 (164,1,CubicS,100,'centered')
+	ease2 (194,2,CubicS,0,'centered')
+	
+	ease {166, 1, flip(outCubic), 150, 'zoomx'}
+	ease {170, 1, flip(outCubic), 150, 'zoomx'}
+	ease {174, 1, flip(outCubic), 150, 'zoomx'}
+	ease {178, 1, flip(outCubic), 150, 'zoomx'}
+	ease {182, 1, flip(outCubic), 150, 'zoomx'}
+	ease {186, 1, flip(outCubic), 150, 'zoomx'}
+	ease {190, 1, flip(outCubic), 150, 'zoomx'}
+	
+	ease {164, 1, flip(outCubic), -250, 'tiny'}
+	ease {171.5, 1, flip(outCubic), -250, 'tiny'}
+	ease {172, 1, flip(outCubic), -250, 'tiny'}
+	ease {180, 1, flip(outCubic), -250, 'tiny'}
+	ease {187.5, 1, flip(outCubic), -250, 'tiny'}
+	ease {188, 1, flip(outCubic), -250, 'tiny'}
+	
 	
 	ease {196, 218-196, QuartS, 30, 'rotationx'}
 	
@@ -320,6 +338,9 @@
 		--mod_kick(i,1,0, 100,'brake','Cubic','Cubic')
 	f = f * -1
 	end
+	
+	ease2 (196,1,CubicS,300,'zoomz')
+	
 	
 	-- you dropped this king ~Sudo
 	set {196, 100, 'scanlinealpha'}
