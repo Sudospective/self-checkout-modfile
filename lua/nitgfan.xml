@@ -72,6 +72,7 @@
 	f = f * -1
 	end
 	
+-------------------- funk shit ----------------------------
 	ease2 (98,1,CircS,0.5,'bgzoom')
 	ease2 (100,1,CircS,-0.5,'bgzoom')
 	
@@ -170,6 +171,40 @@
 	ease {118, 1.5, QuartS, 0, 'reverse'}
 	ease {120, 1.5, QuartS, 100, 'reverse'}
 	ease {122, 1.5, QuartS, 0, 'reverse'}
+	
+------------------- buildup 2 --------------------------------------
+	
+	ease {196, 218-196, QuartS, 30, 'rotationx'}
+	
+	ease {196, 218-196, QuartS, 50, 'brake'}
+	ease {196, 218-196, QuartS, 100, 'wave'}
+	
+	local f = 1
+	for i=196,210,2 do
+		add2 (i,1,CubicS,180*f,'blacksphere')
+		add2 (i+1,1,CubicS,180*f,'blacksphere')
+		ease2 (i,2,ExpoS,20*f,'rotationz')
+	f = f * -1
+	end
+	
+	local f = 1
+	for i=196,210,4 do
+		ease2 (i,1,ExpoS,75*f,'x')
+		ease2 (i+1,1,ExpoS,140*f,'x')
+		ease2 (i+2,1,ExpoS,75*f,'x')
+		ease2 (i+3,1,ExpoS,0,'x')
+	f = f * -1
+	end
+	
+	local f = 1
+	for i=196,211 do
+		mod_kick(i,1,0, 100,'y','Cubic','Cubic')
+	f = f * -1
+	end
+	
+	ease2 (212,1,ExpoS,0,'rotationz')
+	
+	
 	
 	
 	
