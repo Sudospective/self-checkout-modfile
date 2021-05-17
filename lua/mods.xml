@@ -52,11 +52,11 @@
 
 	function surface(beat)
 		func {beat, 2, outCirc, 1, 0, function(p)
-			self:vibrate()
-			self:effectmagnitude(100 * p, 100 * p, 0)
+			Surface:vibrate()
+			Surface:effectmagnitude(100 * p, 100 * p, 0)
 		end}
 		func {beat + 2, function()
-			self:stopeffect()
+			Surface:stopeffect()
 		end}
 	end
 	
@@ -102,7 +102,6 @@
 		ScanLine:diffusealpha(a * 0.01)
 		ScanLine:fadetop(1)
 		ScanLine:fadebottom(1)
-		ScanSprite:diffusealpha(a * 0.005)
 		P1Sprite:diffusealpha(a * 0.01)
 		P2Sprite:diffusealpha(a * 0.01)
 		P1Sprite:cropbottom(y * 0.01)
@@ -126,7 +125,7 @@
 	aft(ScanAFT)
 	sprite(ScanSprite)
 	aftsprite(ScanAFT, ScanSprite)
-	ScanSprite:diffusealpha(0.25)
+	ScanSprite:diffusealpha(0.5)
 	BG1:SetTarget(CheckoutBGFrame)
 	BG2:SetTarget(CheckoutBGFrame)
 	ScanP1:SetTarget(P[1])
@@ -139,36 +138,44 @@
 	aftsprite(P1AFT, P1Sprite)
 	aftsprite(P2AFT, P2Sprite)
 
+-------------------------------------- spellcard stuff ---------------------------------------------------
+
+	card {60, 67.5, 'YOU GOT KNOCKED THE FUGOUT!', 10, '#FFF088'}
+
 	
 end)"
 Type = "ActorFrame"
 ><children>
 
-	<Layer Type = "ActorProxy" Name = "BG2" />
-	<Layer Type = "ActorProxy" Name = "ScanP2" />
-	<Layer Type = "ActorFrameTexture" Name = "P2AFT" />
-	<Layer Type = "ActorProxy" Name = "BG1" />
-	<Layer Type = "ActorProxy" Name = "ScanP1" />
-	<Layer Type = "ActorFrameTexture" Name = "P1AFT" />
-	
-	<Layer Type = "ActorFrame" Name = "CheckoutBGFrame">
-		<children>
-		<Layer File="bg/background" Name="CheckoutBg"/>
-		<Layer File="bg/cloud.png" Name="CheckoutFog"/>
-		</children>
+	<Layer Type = "ActorFrame" Name = "Surface">
+	<children>
+		<Layer Type = "ActorProxy" Name = "BG2" />
+		<Layer Type = "ActorProxy" Name = "ScanP2" />
+		<Layer Type = "ActorFrameTexture" Name = "P2AFT" />
+		<Layer Type = "ActorProxy" Name = "BG1" />
+		<Layer Type = "ActorProxy" Name = "ScanP1" />
+		<Layer Type = "ActorFrameTexture" Name = "P1AFT" />
+		
+		<Layer Type = "ActorFrame" Name = "CheckoutBGFrame">
+			<children>
+			<Layer File="bg/background" Name="CheckoutBg"/>
+			<Layer File="bg/cloud.png" Name="CheckoutFog"/>
+			</children>
+		</Layer>
+
+		<Layer File="nitgfan.xml"/>
+		<Layer File="sudo.xml"/>
+
+		<Layer Type = "ActorProxy" Name = "PP[1]" />
+		<Layer Type = "ActorProxy" Name = "PP[2]" />
+		<Layer Type = "Sprite" Name = "P1Sprite" />
+		<Layer Type = "Sprite" Name = "P2Sprite" />
+		<Layer Type = "ActorProxy" Name = "PC[1]" />
+		<Layer Type = "ActorProxy" Name = "PJ[1]" />
+		<Layer Type = "ActorProxy" Name = "PC[2]" />
+		<Layer Type = "ActorProxy" Name = "PJ[2]" />
+	</children>
 	</Layer>
-
-	<Layer File="nitgfan.xml"/>
-	<Layer File="sudo.xml"/>
-
-	<Layer Type = "ActorProxy" Name = "PP[1]" />
-	<Layer Type = "ActorProxy" Name = "PP[2]" />
-	<Layer Type = "Sprite" Name = "P1Sprite" />
-	<Layer Type = "Sprite" Name = "P2Sprite" />
-	<Layer Type = "ActorProxy" Name = "PC[1]" />
-	<Layer Type = "ActorProxy" Name = "PJ[1]" />
-	<Layer Type = "ActorProxy" Name = "PC[2]" />
-	<Layer Type = "ActorProxy" Name = "PJ[2]" />
 
 	<Layer Type = "Sprite" Name = "ScanSprite" />
 	<Layer
