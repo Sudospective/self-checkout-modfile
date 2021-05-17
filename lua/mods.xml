@@ -107,8 +107,8 @@
 		P1Sprite:cropbottom(y * 0.01)
 		P2Sprite:croptop(1 - (y * 0.01))
 
-		GAMESTATE:ApplyModifiers('*-1 '..a..' hidden, *-1 '..(-100 + (y * 2)) * a..' hiddenoffset', 1)
-		GAMESTATE:ApplyModifiers('*-1 '..a..' sudden, *-1 '..(-100 + (y * 2)) * a..' suddenoffset', 2)
+		GAMESTATE:ApplyModifiers('*-1 '..a..' hidden, *-1 '..(-100 + (y)) * a..' hiddenoffset', 1)
+		GAMESTATE:ApplyModifiers('*-1 '..a..' sudden, *-1 '..(200 - (y)) * a..' suddenoffset', 2)
 
 		--[[
 		poptions[1].hidden = a
@@ -141,6 +141,7 @@
 -------------------------------------- spellcard stuff ---------------------------------------------------
 
 	card {60, 67.5, 'YOU GOT KNOCKED THE FUGOUT!', 10, '#FFF088'}
+	card {292, 319.5, 'Self Checkout', 13, '#F033AC'}
 
 	
 end)"
