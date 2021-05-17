@@ -107,8 +107,8 @@
 		P1Sprite:cropbottom(y * 0.01)
 		P2Sprite:croptop(1 - (y * 0.01))
 
-		GAMESTATE:ApplyModifiers('*-1 '..a..' hidden, *-1 '..(-100 + (y)) * a..' hiddenoffset', 1)
-		GAMESTATE:ApplyModifiers('*-1 '..a..' sudden, *-1 '..(200 - (y)) * a..' suddenoffset', 2)
+		GAMESTATE:ApplyModifiers('*-1 '..(a * 5)..' hidden, *-1 '..(-200 + (y * 3.5)) * (a * 0.01)..' hiddenoffset', 1)
+		GAMESTATE:ApplyModifiers('*-1 '..(a * 5)..' sudden, *-1 '..(-210 + (y * 3.5)) * (a * 0.01)..' suddenoffset', 2)
 
 		--[[
 		poptions[1].hidden = a
@@ -117,6 +117,7 @@
 		poptions[2].suddenoffset = (-100 + (y * 2))
 		--]]
 	end}
+	setdefault {0, 'scanlinealpha', 0, 'scanlinepos'}
 
 -------------------------------------- fg stuff ---------------------------------------------------
 
@@ -140,8 +141,12 @@
 
 -------------------------------------- spellcard stuff ---------------------------------------------------
 
+	card {32, 35.5, 'no really blacksphere is what you wanted right', 3, '#3D3D3D'}
+	card {36, 51.5, 'right right right right right right right right ri--', 2, '#2C2C2C'}
+	card {52, 59.5, 'sudo you already made nuclear-star', 4, '#E4E4E4'}
 	card {60, 67.5, 'YOU GOT KNOCKED THE FUGOUT!', 10, '#FFF088'}
 	card {292, 319.5, 'Self Checkout', 13, '#F033AC'}
+	card {320, 324, 'alright now pack those groceries in the trunk', 4, '#CDCDCD'}
 
 	
 end)"
