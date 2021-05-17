@@ -117,7 +117,7 @@
 		poptions[2].suddenoffset = (-100 + (y * 2))
 		--]]
 	end}
-	setdefault {0, 'scanlinealpha', 0, 'scanlinepos'}
+	setdefault {0, 'scanlinealpha', 0, 'scanlinepos', 100, 'stealthtype', 100, 'stealthpastreceptors'}
 
 -------------------------------------- fg stuff ---------------------------------------------------
 
@@ -141,10 +141,14 @@
 
 -------------------------------------- spellcard stuff ---------------------------------------------------
 
+	-- You might wanna pick some less pukey colors. ~Sudo
 	card {32, 35.5, 'no really blacksphere is what you wanted right', 3, '#3D3D3D'}
 	card {36, 51.5, 'right right right right right right right right ri--', 2, '#2C2C2C'}
 	card {52, 59.5, 'sudo you already made nuclear-star', 4, '#E4E4E4'}
 	card {60, 67.5, 'YOU GOT KNOCKED THE FUGOUT!', 10, '#FFF088'}
+	card {224, 228, 'IT HAS BEEN -[ 0 DAYS ]- SINCE SUDO HAS HAUNTED THE HOUSE', 0, '#F0F0F0'}
+	card {228, 229.5, 'DO YOU WANNA TAKE A NAP IN MY MODS NOW', 999, '#AC1010'}
+	card {274, 275.5, 'DUDE ARE YOU OKAY', 2, '#CAFFAE'}
 	card {292, 319.5, 'Self Checkout', 13, '#F033AC'}
 	card {320, 324, 'alright now pack those groceries in the trunk', 4, '#CDCDCD'}
 

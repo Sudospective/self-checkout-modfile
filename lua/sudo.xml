@@ -3,11 +3,13 @@
 	= inOutSine, inOutCubic, inOutQuint, inOutCirc, inOutElastic, inOutQuad, inOutQuart, inOutExpo, inOutBack, inOutBounce
 	-- your code goes here here:
 
+	local sleep = function(x)
+		if x < 1 then return 0 else return 1 end
+	end
+
 	alias {'confusionzoffset', 'confusionoffset'}
 
-
 	setdefault {100, 'modtimer', 0, 'scanlinepos', 0, 'scanlinealpha', 0, 'bgzoom', 0, 'bgkick', 0, 'bgrotx', 0, 'bgroty', 0, 'bgrotz'}
-	
 
 	ease {34, 2, inOutCirc, 100, 'mini', 20, 'reverse'}
 	ease {36, 24, inQuad, -500, 'mini', 0, 'reverse', 50, 'flip', 0.75, 'xmod'}
@@ -501,7 +503,7 @@
 		100, 'zoomy',
 		-195, 'holdgirth',
 	}
-	ease {228, 2, flip(inSine),
+	ease {228, 2, bounce,
 		-1000, 'tinyx',
 		-1000, 'tinyz',
 	}
@@ -514,7 +516,8 @@
 		0, 'rotationy',
 		0, 'holdgirth',
 	}
-	ease {228, 2, outCirc, -90, 'rotationy'}
+	ease {228, 2, outExpo, -90, 'rotationy'}
+	ease {228, 2, flip(sleep), 75, 'stealthgreen', 75, 'stealthblue'}
 	ease {228, 2, flip(inQuad), 200, 'spiralx', 200, 'spiralz', plr = 1}
 	ease {228, 2, flip(inQuad), -200, 'spiralx', -200, 'spiralz', plr = 2}
 	ease {229, 1, inExpo, 0, 'rotationx', 0, 'confusionxoffset', 0, 'rotationz'}
@@ -533,32 +536,6 @@
 	swap {234, 0.5, outExpo, 'ludr'}
 	swap {234.5, 0.5, outExpo, 'rudl'}
 	swap {235, 2, outElastic, 'ldur'}
-
-	set {262, 100, 'scanlinepos'}
-	ease {262, 1, bounce, 66, 'scanlinepos'}
-	swap {262, 0, instant, 'drlu', plr = 1}
-	set {262, 90 * math.pi/1.8, 'confusionzoffset', plr = 1}
-	swap {263, 0, instant, 'ldur', plr = 1}
-	set {263, 0, 'confusionzoffset', plr = 1}
-	ease {262.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {263.75, 0.5, inOutExpo, 0, 'invert'}
-	set {264, 0, 'scanlinepos'}
-	ease {264, 1, bounce, 66, 'scanlinepos'}
-	swap {264, 0, instant, 'ulrd', plr = 2}
-	set {264, -90 * math.pi/1.8, 'confusionzoffset', plr = 2}
-	swap {265, 0, instant, 'ldur', plr = 2}
-	set {265, 0, 'confusionzoffset', plr = 2}
-	ease {264.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {265.75, 0.5, inOutExpo, 0, 'invert'}
-	set {266, 100, 'scanlinepos'}
-	ease {266, 1, bounce, 66, 'scanlinepos'}
-	swap {266, 0, instant, 'drlu', plr = 1}
-	set {266, 90 * math.pi/1.8, 'confusionzoffset', plr = 1}
-	swap {267, 0, instant, 'ldur', plr = 1}
-	set {267, 0, 'confusionzoffset', plr = 1}
-	ease {266.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {267.75, 0.5, inOutExpo, 0, 'invert'}
-	set {268, 100, 'scanlinepos'}
 
 	bgfade(260, 'sudo')
 	surface(260)
@@ -597,10 +574,138 @@
 		0, 'rotationy',
 		0, 'holdgirth',
 	}
-	ease {260, 2, outCirc, -90, 'rotationy'}
+	ease {260, 2, outExpo, -90, 'rotationy'}
+	ease {260, 2, flip(inExpo), 75, 'stealthgreen', 75, 'stealthblue'}
 	ease {260, 2, flip(inQuad), 200, 'spiralx', 200, 'spiralz', plr = 1}
 	ease {260, 2, flip(inQuad), -200, 'spiralx', -200, 'spiralz', plr = 2}
 	ease {261, 1, inExpo, 0, 'rotationx', 0, 'confusionxoffset', 0, 'rotationz'}
+
+	set {262, 100, 'scanlinepos'}
+	ease {262, 1, bounce, 75, 'scanlinepos'}
+	swap {262, 0, instant, 'drlu', plr = 1}
+	set {262, 90 * math.pi/1.8, 'confusionzoffset', plr = 1}
+	swap {263, 0, instant, 'ldur', plr = 1}
+	set {263, 0, 'confusionzoffset', plr = 1}
+	ease {262.75, 0.5, inOutExpo, 100, 'invert'}
+	ease {263.75, 0.5, inOutExpo, 0, 'invert'}
+	set {264, 0, 'scanlinepos'}
+	ease {264, 1, bounce, 50, 'scanlinepos'}
+	swap {264, 0, instant, 'ulrd', plr = 2}
+	set {264, -90 * math.pi/1.8, 'confusionzoffset', plr = 2}
+	swap {265, 0, instant, 'ldur', plr = 2}
+	set {265, 0, 'confusionzoffset', plr = 2}
+	ease {264.75, 0.5, inOutExpo, 100, 'invert'}
+	ease {265.75, 0.5, inOutExpo, 0, 'invert'}
+	set {266, 100, 'scanlinepos'}
+	ease {266, 1, bounce, 75, 'scanlinepos'}
+	swap {266, 0, instant, 'drlu', plr = 1}
+	set {266, 90 * math.pi/1.8, 'confusionzoffset', plr = 1}
+	swap {267, 0, instant, 'ldur', plr = 1}
+	set {267, 0, 'confusionzoffset', plr = 1}
+	ease {266.75, 0.5, inOutExpo, 100, 'invert'}
+	ease {267.75, 0.5, inOutExpo, 0, 'invert'}
+	set {268, 0, 'scanlinepos'}
+	
+	set {270, 0, 'scanlinepos'}
+	ease {270, 1, bounce, 50, 'scanlinepos'}
+	swap {270, 0, instant, 'ulrd', plr = 2}
+	set {270, -90 * math.pi/1.8, 'confusionzoffset', plr = 2}
+	swap {271, 0, instant, 'ldur', plr = 2}
+	set {271, 0, 'confusionzoffset', plr = 2}
+	ease {270.75, 0.5, inOutExpo, 100, 'invert'}
+	ease {271.75, 0.5, inOutExpo, 0, 'invert'}
+	set {272, 100, 'scanlinepos'}
+	ease {272, 1, bounce, 75, 'scanlinepos'}
+	swap {272, 0, instant, 'drlu', plr = 1}
+	set {272, 90 * math.pi/1.8, 'confusionzoffset', plr = 1}
+	swap {273, 0, instant, 'ldur', plr = 1}
+	set {273, 0, 'confusionzoffset', plr = 1}
+	ease {272.75, 0.5, inOutExpo, 100, 'invert'}
+	ease {273.75, 0.5, inOutExpo, 0, 'invert'}
+	set {268, 0, 'scanlinepos'}
+
+	ease {261, 1, flip(inExpo), 360, 'rotationz'}
+	ease {262, 1.5, pop, -15, 'rotationz'}
+	ease {263, 1, flip(inExpo), -360, 'rotationz'}
+	ease {264, 1.5, pop, 15, 'rotationz'}
+	ease {265, 1, flip(inExpo), 360, 'rotationz'}
+	ease {266, 1.5, pop, -15, 'rotationz'}
+	for beat = 262, 266, 2 do
+		ease {beat - 1, 1, inQuad, 200, 'mini'}
+		set {beat, -1000, 'mini', 25, 'tipsyspacing'}
+		ease {beat, 4, flip(outElastic), 400, 'tipsy'}
+		ease {beat, 1, outExpo, 0, 'mini'}
+	end
+	
+	ease {269, 1, flip(inExpo), -360, 'rotationz'}
+	ease {270, 1.5, pop, 15, 'rotationz'}
+	ease {271, 1, flip(inExpo), 360, 'rotationz'}
+	ease {272, 1.5, pop, -15, 'rotationz'}
+	for beat = 270, 272, 2 do
+		ease {beat - 1, 1, inQuad, 200, 'mini'}
+		set {beat, -2000, 'mini', 25, 'tipsyspacing'}
+		ease {beat, 4, flip(outElastic), 400, 'tipsy'}
+		ease {beat, 1, outExpo, 0, 'mini'}
+	end
+
+	ease {273.5, 1, inOutExpo, 400, 'zoomz', -100, 'mini', 30, 'rotationx', -20, 'rotationy', -15, 'rotationz', -25, 'movex'}
+	ease {274.5, 1, inOutExpo, 20, 'rotationy', 15, 'rotationz', 25, 'movex'}
+	ease {275.5, 1, inOutExpo, 100, 'zoomz', 0, 'mini', 0, 'rotationx', 0, 'rotationy', 0, 'rotationz', 0, 'movex'}
+	ease {273, 2, spike, 150, 'zoomy', 20, 'skewy'}
+	ease {274, 2, spike, 150, 'zoomx', -20, 'skewx'}
+	ease {275, 2, spike, 150, 'zoomy', -20, 'skewy'}
+	ease {275, 1, pop, -200, 'tiny', -1000, 'tinyz'}
+	ease {276, 1, pop, 500, 'bumpy', -1500, 'tinyz', -500, 'tiny', 25, 'flip', 200, 'zoomz', 100, 'brake', 25, 'reverse', 30, 'rotationx', -30 * math.pi/1.8, 'confusionxoffset'}
+	ease {277, 0.5, bounce, 150, 'tiny'}
+	ease {276, 2, inOutExpo, 100, 'flip'}
+	ease {277, 2, inOutExpo, 0, 'flip'}
+	
+	ease {277, 1, flip(inExpo), -360, 'rotationz'}
+	ease {278, 1.5, pop, 15, 'rotationz'}
+	ease {279, 1, flip(inExpo), 360, 'rotationz'}
+	ease {280, 1.5, pop, -15, 'rotationz'}
+	ease {281, 1, flip(inExpo), -360, 'rotationz'}
+	ease {282, 1.5, pop, 15, 'rotationz'}
+	for beat = 278, 282, 2 do
+		ease {beat - 0.5, 0.5, inExpo, -2000, 'mini'}
+		set {beat, 200, 'mini', 25, 'tipsyspacing'}
+		ease {beat, 4, flip(outElastic), 400, 'tipsy'}
+		ease {beat, 1, outQuad, 0, 'mini'}
+	end
+
+	set {278, 0, 'scanlinepos'}
+	ease {278, 1, bounce, 50, 'scanlinepos'}
+	swap {278, 0, instant, 'drlu', plr = 2}
+	set {278, 90 * math.pi/1.8, 'confusionzoffset', plr = 2}
+	swap {279, 0, instant, 'ldur', plr = 2}
+	set {279, 0, 'confusionzoffset', plr = 2}
+	ease {278.75, 0.5, inOutExpo, 100, 'invert'}
+	ease {279.75, 0.5, inOutExpo, 0, 'invert'}
+	set {280, 0, 'scanlinepos'}
+	ease {280, 1, bounce, 75, 'scanlinepos'}
+	swap {280, 0, instant, 'ulrd', plr = 1}
+	set {280, -90 * math.pi/1.8, 'confusionzoffset', plr = 1}
+	swap {281, 0, instant, 'ldur', plr = 1}
+	set {281, 0, 'confusionzoffset', plr = 1}
+	ease {280.75, 0.5, inOutExpo, 100, 'invert'}
+	ease {281.75, 0.5, inOutExpo, 0, 'invert'}
+	set {282, 100, 'scanlinepos'}
+	ease {282, 1, bounce, 50, 'scanlinepos'}
+	swap {282, 0, instant, 'drlu', plr = 2}
+	set {282, 90 * math.pi/1.8, 'confusionzoffset', plr = 2}
+	swap {282, 0, instant, 'ldur', plr = 2}
+	set {282, 0, 'confusionzoffset', plr = 2}
+	ease {282.75, 0.5, inOutExpo, 100, 'invert'}
+	ease {282.75, 0.5, inOutExpo, 0, 'invert'}
+	set {284, 0, 'scanlinepos', 0, 'scanlinealpha'}
+	
+	local k3 = -1
+	func {284, 1, bounce, 0.5, function(p)
+		k3 = -k3
+		for pn = 1, #P do
+			P[pn]:zoom(1 + (p * k3))
+		end
+	end, persist = false}
 	
 	bgfade(292, 'nitgfan')
 	surface(292)
