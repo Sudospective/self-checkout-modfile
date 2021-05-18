@@ -10,6 +10,11 @@
 			P[pn]:effectmagnitude(0,0,p)
 		end
 	end}
+
+	-- Putting these her for your convenience. ~Sudo
+	castspell(92, 'Hyperactive Barcode')
+	--castspell(220, '[spellcard here]')
+	castspell(286, 'Self Checkout')
 	
 	-- your code goes here here:
 	set {0, 0.1, 'xmod', 1, 'zbuffer', 1, 'approachtype', 200, 'modtimer', 1, 'halgun', 1, 'dizzyholds', -100, 'drawsizeback', 1, 'stealthtype', 1, 'stealthpastreceptors', 1, 'receptorzbuffer',30,'reverse',200,'mini',100,'cover'}

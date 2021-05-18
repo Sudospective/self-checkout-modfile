@@ -24,7 +24,6 @@
 	swap {62, 4, spike, 'rudl'}
 	ease {64, 4, inverse, 300, 'tipsy'}
 
-
 	set {60, 0, 'flip', 1.75, 'xmod'}
 	ease {60, 2, flip(outBack), -50, 'movex0', 150, 'movex1', -150, 'movex2', 50, 'movex3'}
 	ease {60, 6, flip(outElastic), -200, 'tipsy'}
@@ -48,6 +47,7 @@
 	
 	ease {66, 2, inCirc, 1.75, 'xmod'}
 
+	castspell(60, 'Dyslexic Xerox')
 	bgfade(68, 'sudo')
 	surface(68)
 
@@ -222,7 +222,8 @@
 	ease {118, 0.25, linear, 0, 'scanlinepos'}
 	ease {120, 0.25, linear, 100, 'scanlinepos'}
 	ease {122, 0.25, linear, 0, 'scanlinepos'}
-
+	
+	castspell(124, 'Polymorphic QR')
 	bgfade(132, 'sudo')
 	surface(132)
 	
@@ -427,9 +428,9 @@
 	bgfade(162, 'nitgfan')
 
 	set {172, 0, 'scanlinepos', 100, 'scanlinealpha'}
-	for beat = 174, 179, 1 do
-		ease {beat - 0.25, 0.5, inOutCirc, 100, 'scanlinepos'}
-		ease {beat + 0.25, 0.5, inOutCirc, 0, 'scanlinepos'}
+	for beat = 174, 178, 2 do
+		ease {beat - 0.5, 1, inOutCirc, 100, 'scanlinepos'}
+		ease {beat + 0.5, 1, inOutCirc, 0, 'scanlinepos'}
 	end
 	--[[
 	set {174, -90 * math.pi/1.8, 'confusionzoffset0', plr = 2}
@@ -440,31 +441,63 @@
 	set {179, 0, 'confusionzoffset2', -90 * math.pi/1.8, 'confusionzoffset1', plr = 2}
 	set {180, 0, 'confusionzoffset1', plr = 2}
 	--]]
-	swap {174, 0, instant, 'dlru', plr = 2}
-	swap {175, 0, instant, 'rudl', plr = 2}
-	swap {176, 0, instant, 'urld', plr = 2}
-	swap {177, 0, instant, 'durl', plr = 2}
-	swap {178, 0, instant, 'rdlu', plr = 2}
-	swap {179, 0, instant, 'ulrd', plr = 2}
-	swap {180, 0, instant, 'ldur', plr = 2}
+	func {174, function(p) CheckoutBg:diffuse(sudo_bg[1], sudo_bg[2], sudo_bg[3], 1) end, persist = false}
+	func {175, function(p) CheckoutBg:diffuse(nitgfan_bg[1], nitgfan_bg[2], nitgfan_bg[3], 1) end, persist = false}
+	ease {173.5, 2, flip(sleep),
+		-300, 'tiny',
+		50, 'flip',
+		100, 'dark0',
+		100, 'dark1',
+		100, 'dark3',
+		plr = 2
+	}
+	func {176, function(p) CheckoutBg:diffuse(sudo_bg[1], sudo_bg[2], sudo_bg[3], 1) end, persist = false}
+	func {177, function(p) CheckoutBg:diffuse(nitgfan_bg[1], nitgfan_bg[2], nitgfan_bg[3], 1) end, persist = false}
+	ease {175.5, 2, flip(sleep),
+		-300, 'tiny',
+		50, 'flip',
+		100, 'dark0',
+		100, 'dark2',
+		100, 'dark3',
+		plr = 2
+	}
+	func {178, function(p) CheckoutBg:diffuse(sudo_bg[1], sudo_bg[2], sudo_bg[3], 1) end, persist = false}
+	func {179, function(p) CheckoutBg:diffuse(nitgfan_bg[1], nitgfan_bg[2], nitgfan_bg[3], 1) end, persist = false}
+	ease {177.5, 2, flip(sleep),
+		-300, 'tiny',
+		50, 'flip',
+		100, 'dark0',
+		100, 'dark1',
+		100, 'dark3',
+		plr = 2
+	}
 	set {180, 0, 'scanlinealpha'}
 	set {188, 100, 'scanlinealpha'}
-	for beat = 190, 193, 1 do
-		ease {beat - 0.25, 0.5, inOutCirc, 100, 'scanlinepos'}
-		ease {beat + 0.25, 0.5, inOutCirc, 0, 'scanlinepos'}
+	for beat = 190, 192, 2 do
+		ease {beat - 0.5, 1, inOutCirc, 100, 'scanlinepos'}
+		ease {beat + 0.5, 1, inOutCirc, 0, 'scanlinepos'}
 	end
-	--[[
-	set {190, -90 * math.pi/1.8, 'confusionzoffset0', plr = 2}
-	set {191, 0, 'confusionzoffset0', -90 * math.pi/1.8, 'confusionzoffset1', plr = 2}
-	set {192, 0, 'confusionzoffset1', -90 * math.pi/1.8, 'confusionzoffset2', plr = 2}
-	set {193, 0, 'confusionzoffset2', -90 * math.pi/1.8, 'confusionzoffset3', plr = 2}
-	set {193.75, 0, 'confusionzoffset3', plr = 2}
-	--]]
-	swap {190, 0, instant, 'dlru', plr = 2}
-	swap {191, 0, instant, 'rudl', plr = 2}
-	swap {192, 0, instant, 'urld', plr = 2}
-	swap {193, 0, instant, 'durl', plr = 2}
-	swap {194, 0, instant, 'ldur', plr = 2}
+
+	func {190, function(p) CheckoutBg:diffuse(sudo_bg[1], sudo_bg[2], sudo_bg[3], 1) end, persist = false}
+	func {191, function(p) CheckoutBg:diffuse(nitgfan_bg[1], nitgfan_bg[2], nitgfan_bg[3], 1) end, persist = false}
+	ease {189.5, 2, flip(sleep),
+		-300, 'tiny',
+		50, 'flip',
+		100, 'dark0',
+		100, 'dark2',
+		100, 'dark3',
+		plr = 2
+	}
+	func {192, function(p) CheckoutBg:diffuse(sudo_bg[1], sudo_bg[2], sudo_bg[3], 1) end, persist = false}
+	func {193, function(p) CheckoutBg:diffuse(nitgfan_bg[1], nitgfan_bg[2], nitgfan_bg[3], 1) end, persist = false}
+	ease {191.5, 2, flip(sleep),
+		-300, 'tiny',
+		50, 'flip',
+		100, 'dark0',
+		100, 'dark1',
+		100, 'dark2',
+		plr = 2
+	}
 
 	set {220.25,
 		125, 'invert',
@@ -535,8 +568,9 @@
 	swap {233.5, 0.5, outExpo, 'ldur'}
 	swap {234, 0.5, outExpo, 'ludr'}
 	swap {234.5, 0.5, outExpo, 'rudl'}
-	swap {235, 2, outElastic, 'ldur'}
+	swap {235, 1, outExpo, 'ldur'}
 
+	castspell(252, 'Gyromanic DataMatrix')
 	bgfade(260, 'sudo')
 	surface(260)
 	
@@ -581,55 +615,55 @@
 	ease {261, 1, inExpo, 0, 'rotationx', 0, 'confusionxoffset', 0, 'rotationz'}
 
 	set {262, 100, 'scanlinepos'}
-	ease {262, 1, bounce, 75, 'scanlinepos'}
+	ease {262, 1, bounce, 60, 'scanlinepos'}
 	swap {262, 0, instant, 'drlu', plr = 1}
-	set {262, 90 * math.pi/1.8, 'confusionzoffset', plr = 1}
+	set {262, 90 * math.pi/1.8, 'confusionzoffset', 90, 'stealth', plr = 1}
 	swap {263, 0, instant, 'ldur', plr = 1}
-	set {263, 0, 'confusionzoffset', plr = 1}
-	ease {262.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {263.75, 0.5, inOutExpo, 0, 'invert'}
+	set {263, 0, 'confusionzoffset', 0, 'stealth', plr = 1}
+	ease {262.75, 0.5, inOutExpo, 100, 'invert', plr = 2}
+	ease {263.75, 0.5, inOutExpo, 0, 'invert', plr = 2}
 	set {264, 0, 'scanlinepos'}
-	ease {264, 1, bounce, 50, 'scanlinepos'}
+	ease {264, 1, bounce, 60, 'scanlinepos'}
 	swap {264, 0, instant, 'ulrd', plr = 2}
-	set {264, -90 * math.pi/1.8, 'confusionzoffset', plr = 2}
+	set {264, -90 * math.pi/1.8, 'confusionzoffset', 90, 'stealth', plr = 2}
 	swap {265, 0, instant, 'ldur', plr = 2}
-	set {265, 0, 'confusionzoffset', plr = 2}
-	ease {264.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {265.75, 0.5, inOutExpo, 0, 'invert'}
+	set {265, 0, 'confusionzoffset', 0, 'stealth', plr = 2}
+	ease {264.75, 0.5, inOutExpo, 100, 'invert', plr = 1}
+	ease {265.75, 0.5, inOutExpo, 0, 'invert', plr = 1}
 	set {266, 100, 'scanlinepos'}
-	ease {266, 1, bounce, 75, 'scanlinepos'}
+	ease {266, 1, bounce, 60, 'scanlinepos'}
 	swap {266, 0, instant, 'drlu', plr = 1}
-	set {266, 90 * math.pi/1.8, 'confusionzoffset', plr = 1}
+	set {266, 90 * math.pi/1.8, 'confusionzoffset', 90, 'stealth', plr = 1}
 	swap {267, 0, instant, 'ldur', plr = 1}
-	set {267, 0, 'confusionzoffset', plr = 1}
-	ease {266.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {267.75, 0.5, inOutExpo, 0, 'invert'}
+	set {267, 0, 'confusionzoffset', 0, 'stealth', plr = 1}
+	ease {266.75, 0.5, inOutExpo, 100, 'invert', plr = 2}
+	ease {267.75, 0.5, inOutExpo, 0, 'invert', plr = 2}
 	set {268, 0, 'scanlinepos'}
 	
 	set {270, 0, 'scanlinepos'}
-	ease {270, 1, bounce, 50, 'scanlinepos'}
+	ease {270, 1, bounce, 60, 'scanlinepos'}
 	swap {270, 0, instant, 'ulrd', plr = 2}
-	set {270, -90 * math.pi/1.8, 'confusionzoffset', plr = 2}
+	set {270, -90 * math.pi/1.8, 'confusionzoffset', 90, 'stealth', plr = 2}
 	swap {271, 0, instant, 'ldur', plr = 2}
-	set {271, 0, 'confusionzoffset', plr = 2}
-	ease {270.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {271.75, 0.5, inOutExpo, 0, 'invert'}
+	set {271, 0, 'confusionzoffset', 0, 'stealth', plr = 2}
+	ease {270.75, 0.5, inOutExpo, 100, 'invert', plr = 1}
+	ease {271.75, 0.5, inOutExpo, 0, 'invert', plr = 1}
 	set {272, 100, 'scanlinepos'}
-	ease {272, 1, bounce, 75, 'scanlinepos'}
+	ease {272, 1, bounce, 60, 'scanlinepos'}
 	swap {272, 0, instant, 'drlu', plr = 1}
-	set {272, 90 * math.pi/1.8, 'confusionzoffset', plr = 1}
+	set {272, 90 * math.pi/1.8, 'confusionzoffset', 90, 'stealth', plr = 1}
 	swap {273, 0, instant, 'ldur', plr = 1}
-	set {273, 0, 'confusionzoffset', plr = 1}
-	ease {272.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {273.75, 0.5, inOutExpo, 0, 'invert'}
+	set {273, 0, 'confusionzoffset', 0, 'stealth', plr = 1}
+	ease {272.75, 0.5, inOutExpo, 100, 'invert', plr = 2}
+	ease {273.75, 0.5, inOutExpo, 0, 'invert', plr = 2}
 	set {268, 0, 'scanlinepos'}
 
 	ease {261, 1, flip(inExpo), 360, 'rotationz'}
-	ease {262, 1.5, pop, -15, 'rotationz'}
+	ease {262, 1.5, pop, -15, 'rotationz', 30, 'rotationx', 400, 'zoomz'}
 	ease {263, 1, flip(inExpo), -360, 'rotationz'}
-	ease {264, 1.5, pop, 15, 'rotationz'}
+	ease {264, 1.5, pop, 15, 'rotationz', 30, 'rotationx', 400, 'zoomz'}
 	ease {265, 1, flip(inExpo), 360, 'rotationz'}
-	ease {266, 1.5, pop, -15, 'rotationz'}
+	ease {266, 1.5, pop, -15, 'rotationz', 30, 'rotationx', 400, 'zoomz'}
 	for beat = 262, 266, 2 do
 		ease {beat - 1, 1, inQuad, 200, 'mini'}
 		set {beat, -1000, 'mini', 25, 'tipsyspacing'}
@@ -638,9 +672,9 @@
 	end
 	
 	ease {269, 1, flip(inExpo), -360, 'rotationz'}
-	ease {270, 1.5, pop, 15, 'rotationz'}
+	ease {270, 1.5, pop, 15, 'rotationz', 30, 'rotationx'}
 	ease {271, 1, flip(inExpo), 360, 'rotationz'}
-	ease {272, 1.5, pop, -15, 'rotationz'}
+	ease {272, 1.5, pop, -15, 'rotationz', 30, 'rotationx'}
 	for beat = 270, 272, 2 do
 		ease {beat - 1, 1, inQuad, 200, 'mini'}
 		set {beat, -2000, 'mini', 25, 'tipsyspacing'}
@@ -661,11 +695,11 @@
 	ease {277, 2, inOutExpo, 0, 'flip'}
 	
 	ease {277, 1, flip(inExpo), -360, 'rotationz'}
-	ease {278, 1.5, pop, 15, 'rotationz'}
+	ease {278, 1.5, pop, 15, 'rotationz', -30, 'rotationx'}
 	ease {279, 1, flip(inExpo), 360, 'rotationz'}
-	ease {280, 1.5, pop, -15, 'rotationz'}
+	ease {280, 1.5, pop, -15, 'rotationz', -30, 'rotationx'}
 	ease {281, 1, flip(inExpo), -360, 'rotationz'}
-	ease {282, 1.5, pop, 15, 'rotationz'}
+	ease {282, 1.5, pop, 15, 'rotationz', -30, 'rotationx'}
 	for beat = 278, 282, 2 do
 		ease {beat - 0.5, 0.5, inExpo, -2000, 'mini'}
 		set {beat, 200, 'mini', 25, 'tipsyspacing'}
@@ -674,29 +708,29 @@
 	end
 
 	set {278, 0, 'scanlinepos'}
-	ease {278, 1, bounce, 50, 'scanlinepos'}
+	ease {278, 1, bounce, 60, 'scanlinepos'}
 	swap {278, 0, instant, 'drlu', plr = 2}
-	set {278, 90 * math.pi/1.8, 'confusionzoffset', plr = 2}
+	set {278, 90 * math.pi/1.8, 'confusionzoffset', 90, 'stealth', plr = 2}
 	swap {279, 0, instant, 'ldur', plr = 2}
-	set {279, 0, 'confusionzoffset', plr = 2}
-	ease {278.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {279.75, 0.5, inOutExpo, 0, 'invert'}
-	set {280, 0, 'scanlinepos'}
-	ease {280, 1, bounce, 75, 'scanlinepos'}
+	set {279, 0, 'confusionzoffset', 0, 'stealth', plr = 2}
+	ease {278.75, 0.5, inOutExpo, 100, 'invert', plr = 1}
+	ease {279.75, 0.5, inOutExpo, 0, 'invert', plr = 1}
+	set {280, 100, 'scanlinepos'}
+	ease {280, 1, bounce, 60, 'scanlinepos'}
 	swap {280, 0, instant, 'ulrd', plr = 1}
-	set {280, -90 * math.pi/1.8, 'confusionzoffset', plr = 1}
+	set {280, -90 * math.pi/1.8, 'confusionzoffset', 90, 'stealth', plr = 1}
 	swap {281, 0, instant, 'ldur', plr = 1}
-	set {281, 0, 'confusionzoffset', plr = 1}
-	ease {280.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {281.75, 0.5, inOutExpo, 0, 'invert'}
-	set {282, 100, 'scanlinepos'}
-	ease {282, 1, bounce, 50, 'scanlinepos'}
+	set {281, 0, 'confusionzoffset', 0, 'stealth', plr = 1}
+	ease {280.75, 0.5, inOutExpo, 100, 'invert', plr = 2}
+	ease {281.75, 0.5, inOutExpo, 0, 'invert', plr = 2}
+	set {282, 0, 'scanlinepos'}
+	ease {282, 1, bounce, 60, 'scanlinepos'}
 	swap {282, 0, instant, 'drlu', plr = 2}
-	set {282, 90 * math.pi/1.8, 'confusionzoffset', plr = 2}
+	set {282, 90 * math.pi/1.8, 'confusionzoffset', 90, 'stealth', plr = 2}
 	swap {282, 0, instant, 'ldur', plr = 2}
-	set {282, 0, 'confusionzoffset', plr = 2}
-	ease {282.75, 0.5, inOutExpo, 100, 'invert'}
-	ease {282.75, 0.5, inOutExpo, 0, 'invert'}
+	set {283, 0, 'confusionzoffset', 0, 'stealth', plr = 2}
+	ease {282.75, 0.5, inOutExpo, 100, 'invert', plr = 1}
+	ease {283.75, 0.5, inOutExpo, 0, 'invert', plr = 1}
 	set {284, 0, 'scanlinepos', 0, 'scanlinealpha'}
 	
 	local k3 = -1
@@ -712,7 +746,20 @@
 
 	surface(308)
 
-	bgfade(322, 'sudo')
+	bgfade(324, 'sudo')
+
+	func {324, function()
+		Surface:playcommand('Flash')
+	end, persist = false}
+	func {324, 4, outExpo, 1, 0, function(p)
+		CheckoutBg:rotationz(-15 * p)
+		CheckoutBg: zoom(1 + (3 * p))
+	end}
+	ease {322, 2, inExpo, -2000, 'tiny', 50, 'reverse', 50, 'flip', 360 * math.pi/1.8, 'confusionzoffset'}
+	set {324, 0, 'confusionzoffset'}
+	ease {324, 2, outExpo, 0, 'tiny', 0, 'flip'}
+	ease {324, 24, outCirc, 15, 'rotationz', -2160, 'rotationy', 2160 * math.pi/1.8, 'confusionyoffset', -10000, 'z'}	
+
 	
 end)"
 Type = "ActorFrame"

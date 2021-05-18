@@ -23,7 +23,7 @@
 	avg_bg = {(nitgfan_bg[1] + sudo_bg[1]) * 0.5, (nitgfan_bg[2] + sudo_bg[2]) * 0.5, (nitgfan_bg[3] + sudo_bg[3]) * 0.5}
 	avg_fog = {(nitgfan_fog[1] + sudo_fog[1]) * 0.5, (nitgfan_fog[2] + sudo_fog[2]) * 0.5, (nitgfan_fog[3] + sudo_fog[3]) * 0.5}
 
-	-- Call this EXACTLY on the beat.
+	-- Call these EXACTLY on the beat.
 	function bgfade(beat, modder)
 		local color
 		local fog
@@ -58,6 +58,31 @@
 		func {beat + 2, function()
 			Surface:stopeffect()
 		end}
+	end
+	
+	-- Call this eight beats EARLY.
+	function castspell(beat, spell)
+		func {beat - 2, 4, inOutExpo, 0, 1, function(p)
+			Spellcard:hidden(0)
+			Spellcard:GetChildAt(1):settext('SPELLCARD: '..spell)
+			Spellcard:y(-32 + (64 * p))
+		end, persist = false}
+		func {beat, 0.5, linear, 1, 0, function(p)
+			Spellcard:GetChildAt(1):cropright(p)
+		end, persist = false}
+		func {beat - 0.5, function()
+			-- Turns out this sound is not good for this song. ~Sudo
+			--Spellcard:GetChildAt(2):start()
+		end, persist = false}
+		func {beat + 5, 0.5, linear, 0, 1, function(p)
+			Spellcard:GetChildAt(1):cropright(p)
+		end, persist = false}
+		func {beat + 4, 4, inOutExpo, 0, 1, function(p)
+			Spellcard:y(32 - (64 * p))
+		end, persist = false}
+		func {beat + 8, function()
+			Spellcard:hidden(1)
+		end, persist = false}
 	end
 	
 -------------------------------------- bg stuff ---------------------------------------------------
@@ -110,6 +135,7 @@
 		GAMESTATE:ApplyModifiers('*-1 '..(a * 5)..' hidden, *-1 '..(-200 + (y * 3.5)) * (a * 0.01)..' hiddenoffset', 1)
 		GAMESTATE:ApplyModifiers('*-1 '..(a * 5)..' sudden, *-1 '..(-210 + (y * 3.5)) * (a * 0.01)..' suddenoffset', 2)
 
+		-- why is it broken.
 		--[[
 		poptions[1].hidden = a
 		poptions[1].hiddenoffset = (-100 + (y * 2))
@@ -138,6 +164,8 @@
 	sprite(P2Sprite)
 	aftsprite(P1AFT, P1Sprite)
 	aftsprite(P2AFT, P2Sprite)
+	
+	Spellcard:GetChildAt(1):cropright(1)
 
 -------------------------------------- spellcard stuff ---------------------------------------------------
 
@@ -145,12 +173,19 @@
 	card {32, 35.5, 'no really blacksphere is what you wanted right', 3, '#3D3D3D'}
 	card {36, 51.5, 'right right right right right right right right ri--', 2, '#2C2C2C'}
 	card {52, 59.5, 'sudo you already made nuclear-star', 4, '#E4E4E4'}
-	card {60, 67.5, 'YOU GOT KNOCKED THE FUGOUT!', 10, '#FFF088'}
-	card {224, 228, 'IT HAS BEEN -[ 0 DAYS ]- SINCE SUDO HAS HAUNTED THE HOUSE', 0, '#F0F0F0'}
+	card {64, 64, 'YOU GOT KNOCKED THE FUGOUT', 8, '#FFF030'}
+	card {68, 92, 'Dyslexic Xerox', 10, '#CD40CD'}
+	card {100, 124, 'Hyperactive Barcode', 13, '#4242D7'} -- needs review
+	card {132, 156, 'Polymorphic QR', 11, '#D480D4'}
+	card {140, 141, 'pick me up some shibuya while youre out', 12, '#616161'}
+	card {172, 194, 'I hope you remember this.', 073021, '#AAFFBB'}
+	card {224, 228, 'It has been -[ 0 DAYS ]- since Sudo has haunted the house', 0, '#F0F0F0'}
 	card {228, 229.5, 'DO YOU WANNA TAKE A NAP IN MY MODS NOW', 999, '#AC1010'}
+	--card {228, 252, '[spellcard here]', 0, '#FFFFFF'} -- needs review
+	card {260, 284, 'Gyromanic DataMatrix', 12, '#E235E2'}
 	card {274, 275.5, 'DUDE ARE YOU OKAY', 2, '#CAFFAE'}
-	card {292, 319.5, 'Self Checkout', 13, '#F033AC'}
-	card {320, 324, 'alright now pack those groceries in the trunk', 4, '#CDCDCD'}
+	card {292, 316, 'Self Checkout', 12, '#4233AC'} -- needs review
+	card {320, 324, 'alright now pack the groceries in the trunk', 4, '#CDCDCD'}
 
 	
 end)"
@@ -168,13 +203,13 @@ Type = "ActorFrame"
 		
 		<Layer Type = "ActorFrame" Name = "CheckoutBGFrame">
 			<children>
-			<Layer File="bg/background" Name="CheckoutBg"/>
-			<Layer File="bg/cloud.png" Name="CheckoutFog"/>
+			<Layer File = "bg/background" Name = "CheckoutBg" />
+			<Layer File = "bg/cloud.png" Name = "CheckoutFog" />
 			</children>
 		</Layer>
 
-		<Layer File="nitgfan.xml"/>
-		<Layer File="sudo.xml"/>
+		<Layer File = "nitgfan.xml" />
+		<Layer File = "sudo.xml" />
 
 		<Layer Type = "ActorProxy" Name = "PP[1]" />
 		<Layer Type = "ActorProxy" Name = "PP[2]" />
@@ -184,6 +219,41 @@ Type = "ActorFrame"
 		<Layer Type = "ActorProxy" Name = "PJ[1]" />
 		<Layer Type = "ActorProxy" Name = "PC[2]" />
 		<Layer Type = "ActorProxy" Name = "PJ[2]" />
+		<Layer
+			Type = "ActorFrame"
+			Name = "Spellcard"
+			OnCommand = "%xero(function(self)
+				self:xy(scx, -32)
+			end)"
+		>
+		<children>
+			<Layer
+				Type = "Quad"
+				OnCommand = "%xero(function(self)
+					self:SetWidth(sw)
+					self:SetHeight(64)
+					self:diffuse(0, 0, 0, 0.5)
+				end)"
+			/>
+			<Layer Type = "BitmapText" Font = "_eurostile outline" />
+			<Layer Type = "ActorSound" File = "assets/spell.ogg" />
+		</children>
+		</Layer>
+		<Layer
+			Type = "Quad"
+			Name = "Flash"
+			OnCommand = "%xero(function(self)
+				self:xy(scx, scy)
+				self:SetWidth(sw)
+				self:SetHeight(sh)
+				self:diffusealpha(0)
+			end)"
+			FlashCommand = "%xero(function(self)
+				self:diffusealpha(1)
+				self:decelerate(2 / GAMESTATE:GetCurBPS())
+				self:diffusealpha(0)
+			end)"
+		/>
 	</children>
 	</Layer>
 
