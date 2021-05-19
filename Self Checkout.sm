@@ -25,12 +25,29 @@
 #FGCHANGES:0.000=template/main.xml=1.000=0=0=1=====,
 ;
 
+#SPELLCARDS:32.000=35.500=no really blacksphere is what you wanted right=3=0.239^0.239^0.239^1.000
+36.000=51.500=right right right right right right right right ri--=2=0.173^0.173^0.173^1.000
+52.000=59.500=sudo you already made nuclear-star=4=0.894^0.894^0.894^1.000
+64.000=64.000=YOU GOT KNOCKED THE FUGOUT=8=1.000^0.941^0.188^1.000
+68.000=92.000=Dyslexic Xerox=10=0.804^0.251^0.804^1.000
+100.000=124.000=Hyperactive Barcode=13=0.259^0.259^0.843^1.000
+132.000=156.000=Polymorphic QR=11=0.831^0.502^0.831^1.000
+140.000=141.000=pick me up some shibuya while youre out=12=0.380^0.380^0.380^1.000
+172.000=194.000=I hope you remember this.=73121=0.667^1.000^0.733^1.000
+224.000=228.000=It has been -[ 0 DAYS ]- since Sudo has haunted the house=0=0.941^0.941^0.941^1.000
+228.000=229.500=DO YOU WANNA TAKE A NAP IN MY MODS NOW=999=0.675^0.063^0.063^1.000
+260.000=284.000=Gyromanic DataMatrix=12=0.886^0.208^0.886^1.000
+274.000=275.500=DUDE ARE YOU OKAY=2=0.792^1.000^0.682^1.000
+292.000=316.000=Self Checkout=12=0.259^0.200^0.675^1.000
+320.000=324.000=alright now pack the groceries in the trunk=4=0.804^0.804^0.804^1.000
+;
+
 #KEYSOUNDS:;
 
-//---------------dance-single - NotSudospective61----------------
+//---------------dance-single - NotSudo61----------------
 #NOTES:
      dance-single:
-     NotSudospective61:
+     NotSudo61:
      Challenge:
      1:
      0.415,0.597,0.101,0.093,0.089:

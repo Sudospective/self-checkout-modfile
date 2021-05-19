@@ -178,7 +178,7 @@
 	card {100, 124, 'Hyperactive Barcode', 13, '#4242D7'} -- needs review
 	card {132, 156, 'Polymorphic QR', 11, '#D480D4'}
 	card {140, 141, 'pick me up some shibuya while youre out', 12, '#616161'}
-	card {172, 194, 'I hope you remember this.', 073021, '#AAFFBB'}
+	card {172, 194, 'I hope you remember this.', 073121, '#AAFFBB'}
 	card {224, 228, 'It has been -[ 0 DAYS ]- since Sudo has haunted the house', 0, '#F0F0F0'}
 	card {228, 229.5, 'DO YOU WANNA TAKE A NAP IN MY MODS NOW', 999, '#AC1010'}
 	--card {228, 252, '[spellcard here]', 0, '#FFFFFF'} -- needs review
