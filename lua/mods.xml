@@ -64,7 +64,7 @@
 	function castspell(beat, spell)
 		func {beat - 2, 4, inOutExpo, 0, 1, function(p)
 			Spellcard:hidden(0)
-			Spellcard:GetChildAt(1):settext('SPELLCARD: '..spell)
+			Spellcard:GetChildAt(1):settext('SPELLCARD: ' .. spell)
 			Spellcard:y(-32 + (64 * p))
 		end, persist = false}
 		func {beat, 0.5, linear, 1, 0, function(p)
