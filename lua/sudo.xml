@@ -240,6 +240,16 @@
 	{100, 2, flip(outExpo), -5000, 'tinyz', 50, 'flip'}
 	{100, 2, flip(inQuad), 30 * math.pi/1.8, 'confusionxoffset'}
 	{100, 2, flip(outElastic), 1500, 'x', 500, 'spiralx'}
+
+	-- i did this because i think it makes it more readable????? ~Sudo
+	{101.5, 2, bell, 3, 'xmod'}
+	{103.5, 2, bell, 3, 'xmod'}
+	{105.5, 2, bell, 3, 'xmod'}
+	{109.5, 2, bell, 3, 'xmod'}
+	{111.5, 2, bell, 3, 'xmod'}
+	{117.5, 2, bell, 3, 'xmod'}
+	{119.5, 2, bell, 3, 'xmod'}
+	{121.5, 2, bell, 3, 'xmod'}
 	
 	surface(116)
 
@@ -332,7 +342,7 @@
 		{beat + 0.25, 0.25, pop, -100, 'tipsy'}
 	end
 	for beat = 134, 138, 2 do
-		set {beat - 0.25, 100, 'scanlinealpha'
+		set {beat - 0.25, 100, 'scanlinealpha'}
 		add
 		{beat, 1, outBack, -360 * math.pi/1.8, 'confusionyoffset'}
 		{beat + 1, 1, outBack, -360 * math.pi/1.8, 'confusionyoffset'}
@@ -655,13 +665,13 @@
 	surface(228)
 	
 	ease
+	{220, 2, outExpo, 1, 'xmod'}
 	{227.75, 0.5, inOutExpo,
 		50, 'flip'
 	}
 	{229.75, 0.5, inOutExpo,
 		0, 'flip'
 	}
-	{220, 2, outExpo, 1, 'xmod'}
 	{227, 1, inExpo,
 		-90, 'rotationx',
 		90 * math.pi/1.8, 'confusionxoffset',
@@ -679,6 +689,7 @@
 	{228, 2, bounce,
 		-1000, 'tinyx',
 		-1000, 'tinyz',
+		5000, 'tinyy',
 	}
 	{229.5, 0.5, inExpo,
 		1.75, 'xmod',
@@ -701,6 +712,7 @@
 	for beat = 230, 234.5, 0.5 do
 		add {beat, 0.5, outBack, 15, 'mini'}
 	end
+	set {235, 0, 'stealth'}
 	ease
 	{234.5, 1, inOutExpo, 0, 'mini'}
 	{234, 2, flip(inOutExpo), -360, 'rotationz'}
@@ -747,6 +759,7 @@
 	{260, 2, bounce,
 		-1000, 'tinyx',
 		-1000, 'tinyz',
+		5000, 'tinyy',
 	}
 	{261.5, 0.5, inExpo,
 		1.75, 'xmod',
@@ -785,8 +798,9 @@
 	set {266, 90 * math.pi/1.8, 'confusionzoffset', 90, 'stealth', plr = 1}
 	swap {267, 0, instant, 'ldur', plr = 1}
 	set {267, 0, 'confusionzoffset', 0, 'stealth', plr = 1}
-	--ease {266.75, 0.5, inOutExpo, 100, 'invert', plr = 2}
-	--ease {267.75, 0.5, inOutExpo, 0, 'invert', plr = 2}
+	ease {266.75, 0.5, inOutExpo, 100, 'invert', plr = 2}
+	ease {267.25, 0.5, inOutExpo, 0, 'invert', plr = 2}
+	ease {268, 2, pop, -100, 'tiny', -2000, 'tinyz', 1.25, 'xmod', 100, 'tornado', -200, 'tornadoperiod'}
 	set {268, 0, 'scanlinepos'}
 
 	ease
