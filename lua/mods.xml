@@ -170,7 +170,7 @@
 -------------------------------------- spellcard stuff ---------------------------------------------------
 
 	-- You might wanna pick some less pukey colors. ~Sudo
-	card {32, 35.5, 'no really blacksphere is what you wanted right', 3, '#3D3D3D'}
+	card {32, 35.5, 'no really blacksphere IS what you wanted right', 3, '#6F6F6F'}
 	card {36, 51.5, 'right right right right right right right right ri--', 2, '#2C2C2C'}
 	card {52, 59.5, 'sudo you already made nuclear-star', 4, '#E4E4E4'}
 	card {64, 64, 'YOU GOT KNOCKED THE FUGOUT', 8, '#FFF030'}
