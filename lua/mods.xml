@@ -167,6 +167,9 @@
 	
 	Spellcard:GetChildAt(1):cropright(1)
 
+	sprite(HGlitch)
+	aftsprite(ScanAFT, HGlitch)
+
 -------------------------------------- spellcard stuff ---------------------------------------------------
 
 	-- You might wanna pick some less pukey colors. ~Sudo
@@ -192,6 +195,7 @@ end)"
 Type = "ActorFrame"
 ><children>
 
+	<!-- sorry kid i used shaders ; ; -->
 	<Layer Type = "ActorFrame" Name = "Surface">
 	<children>
 		<Layer Type = "ActorProxy" Name = "BG2" />
@@ -269,5 +273,11 @@ Type = "ActorFrame"
 		end)"
 	/>
 	<Layer Type = "ActorFrameTexture" Name = "ScanAFT" />
+	
+	<Layer
+		Type = "Sprite"
+		Name = "HGlitch"
+		Frag = "assets/hglitch.frag"
+	/>
 
 </children></Mods>

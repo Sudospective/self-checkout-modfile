@@ -663,6 +663,10 @@
 	end
 	
 	surface(228)
+	func {228, 2, sleep, 0.02, 0, function(p)
+		HGlitch:GetShader():uniform1f('amp', p)
+		HGlitch:GetShader():uniform1f('amp2', p * 5)
+	end}
 	
 	ease
 	{220, 2, outExpo, 1, 'xmod'}
@@ -733,6 +737,10 @@
 	castspell(252, 'Gyromanic DataMatrix')
 	bgfade(260, 'sudo')
 	surface(260)
+	func {260, 2, sleep, 0.02, 0, function(p)
+		HGlitch:GetShader():uniform1f('amp', p)
+		HGlitch:GetShader():uniform1f('amp2', p * 5)
+	end}
 	
 	ease
 	{259.75, 0.5, inOutExpo,
