@@ -32,7 +32,10 @@
 		return function(x) return 1 - fn(x) end
 	end
 	flip = fncache(flip)
-	
+
+	function sleep(x)
+		if x < 1 then return 0 else return 1 end
+	end
 	function bounce(t) return 4 * t * (1 - t) end
 	function tri(t) return 1 - abs(2 * t - 1) end
 	function bell(t) return inOutQuint(tri(t)) end

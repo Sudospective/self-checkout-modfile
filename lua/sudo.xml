@@ -3,10 +3,6 @@
 	= inOutSine, inOutCubic, inOutQuint, inOutCirc, inOutElastic, inOutQuad, inOutQuart, inOutExpo, inOutBack, inOutBounce
 	-- your code goes here here:
 
-	local sleep = function(x)
-		if x < 1 then return 0 else return 1 end
-	end
-
 	alias {'confusionzoffset', 'confusionoffset'}
 
 	setdefault {100, 'modtimer', 0, 'scanlinepos', 0, 'scanlinealpha', 0, 'bgzoom', 0, 'bgkick', 0, 'bgrotx', 0, 'bgroty', 0, 'bgrotz'}

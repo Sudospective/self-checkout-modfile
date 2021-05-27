@@ -51,6 +51,9 @@
 	end
 
 	function surface(beat)
+		func {beat - 2, 4, spike, 0, -1, function(p)
+			FishEye:GetShader():uniform1f('amount', p)
+		end}
 		func {beat, 2, outCirc, 1, 0, function(p)
 			Surface:vibrate()
 			Surface:effectmagnitude(100 * p, 100 * p, 0)
@@ -102,6 +105,7 @@
 	CheckoutFog:texcoordvelocity(0,0.1)
 	CheckoutFog:diffuse(0, 0, 0.5, 0.5)
 	CheckoutFog:blend('add')
+
 	
 -------------------------------------- definemod stuff ---------------------------------------------------
 	
@@ -169,6 +173,10 @@
 
 	sprite(HGlitch)
 	aftsprite(ScanAFT, HGlitch)
+
+	aft(GlitchAFT)
+	sprite(FishEye)
+	aftsprite(GlitchAFT, FishEye)
 
 -------------------------------------- spellcard stuff ---------------------------------------------------
 
@@ -273,11 +281,18 @@ Type = "ActorFrame"
 		end)"
 	/>
 	<Layer Type = "ActorFrameTexture" Name = "ScanAFT" />
-	
+
 	<Layer
 		Type = "Sprite"
 		Name = "HGlitch"
 		Frag = "assets/hglitch.frag"
+	/>
+	<Layer Type = "ActorFrameTexture" Name = "GlitchAFT" />
+
+	<Layer
+		Type = "Sprite"
+		Name = "FishEye"
+		Frag = "assets/fisheye.frag"
 	/>
 
 </children></Mods>
