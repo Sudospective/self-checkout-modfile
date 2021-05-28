@@ -302,6 +302,10 @@
 	{132, 2, flip(outElastic), 1500, 'x', 500, 'spiralx'}
 
 	set {132, 0, 'rotationy', 0, 'scanlinealpha'}
+
+	ease {140, 20, linear, 150, 'bumpyx', 20, 'stealth', 1.25, 'xmod'}
+	ease {160, 4, linear, 0, 'bumpyx', 0, 'stealth', 1.75, 'xmod'}
+
 	
 	
 	for beat = 134, 154, 2 do
@@ -368,7 +372,6 @@
 		set {beat + 1.25, 0, 'scanlinealpha'}
 	end
 
-	---[[
 	ease
 	{134, 1, outExpo, -150, 'movex', -10, 'rotationy', -10, 'rotationz'}
 	{134.25, 0.5, bell, 100, 'invert'}
@@ -381,13 +384,7 @@
 	{139, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
 	{139.25, 0.25, linear, 0, 'tinyz'}
 	{139, 1, pop, 25, 'bumpyxoffset', 50, 'tiny', 100, 'drunk'}
-	--]]
 
-	--ease {140, 0.5, linear, 180, 'rotationy', -180 * math.pi/1.8, 'confusionyoffset'}
-	--ease {141, 0.5, linear, 0, 'rotationy', 0 * math.pi/1.8, 'confusionyoffset'}
-
-	--ease {140, 2, bounce, -150, 'mini'}
-	ease
 	{140, 1, bounce, -150, 'mini', 15, 'rotationz'}
 	{141, 1, bounce, -150, 'mini', -15, 'rotationz'}
 	
@@ -397,15 +394,13 @@
 	{140, 0.5, outExpo, function()
 		k2 = -k2
 		for pn = 1, #P do
-			--poptions[pn].tipsy = 100 * k2 -- fuckin poptions dont work xero dammit
+			-- poptions didnt work .n.
 			GAMESTATE:ApplyModifiers('*-1 '..200 * k2..' tipsy')
 		end
 	end, persist = false}
 	{140, 1, linear, 0, 1, function(p)
 		v = 1 - v
 		for pn = 1, #P do
-			--poptions[pn].rotationy = 180 * v * p
-			--poptions[pn].confusionyoffset = (-180 * math.pi/1.8) * v * p
 			GAMESTATE:ApplyModifiers('*-1 '..180 * v * p..' rotationy')
 			GAMESTATE:ApplyModifiers('*-1 '..(-180 * math.pi/1.8) * v * p..' confusionyoffset')
 		end
@@ -419,15 +414,12 @@
 	{141, 0.5, outExpo, function()
 		k2 = -k2
 		for pn = 1, #P do
-			--poptions[pn].tipsy = 100 * k2 -- fuckin poptions dont work xero dammit
 			GAMESTATE:ApplyModifiers('*-1 '..200 * k2..' tipsy')
 		end
 	end, persist = false}
 	{141, 1, linear, 1, 0, function(p)
 		v = 1 - v
 		for pn = 1, #P do
-			--poptions[pn].rotationy = 180 * v * p
-			--poptions[pn].confusionyoffset = (-180 * math.pi/1.8) * v * p
 			GAMESTATE:ApplyModifiers('*-1 '..180 * v * p..' rotationy')
 			GAMESTATE:ApplyModifiers('*-1 '..(-180 * math.pi/1.8) * v * p..' confusionyoffset')
 		end
@@ -483,6 +475,25 @@
 	{147, 0.5, pop, 100, 'tipsy'}
 	{147.5, 0.5, pop, -100, 'tipsy'}
 
+	{147.5, 3, bell,
+		0, 'reverse',
+		-100, 'tiny',
+		10, 'flip',
+		60, 'rotationx',
+		400, 'zoomz',
+		20, 'tornado',
+		800, 'parabolaz',
+		20, 'bumpy',
+		50, 'tornadoperiod',
+		2, 'xmod',
+		-150, 'wave'
+	}
+	{148, 2, flip(outExpo), -5000, 'tinyz', 50, 'flip'}
+	{148, 2, flip(inQuad), -30 * math.pi/1.8, 'confusionxoffset'}
+	{148, 2, flip(outElastic), 1500, 'x', 500, 'spiralx'}
+	
+	surface(148)
+	
 
 	for beat = 150, 155.5, 0.5 do
 		ease
@@ -522,26 +533,46 @@
 	{154, 1, outExpo, 150, 'movex', 10, 'rotationy', 10, 'rotationz'}
 	{154.25, 0.5, bell, 100, 'invert'}
 	{155, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
-
-	surface(148)
 	
+	local k3 = -1
+	func {156, 1, bounce, 0.5, function(p)
+		k3 = -k3
+		for pn = 1, #P do
+			P[pn]:zoom(1 + (p * k3))
+			GAMESTATE:ApplyModifiers('*-1 '..(125 * (1 - k3) * p)..' flip, *-1 '..(100 * k3 * p)..' bumpyx, *-1 '..(100 * k3 * p)..' tipsy')
+		end
+	end, persist = false}
+
+	set {157, 0, 'flip', 0, 'drunk'}
+
 	ease
-	{147.5, 3, bell,
-		0, 'reverse',
-		-100, 'tiny',
-		10, 'flip',
-		60, 'rotationx',
-		400, 'zoomz',
-		20, 'tornado',
-		800, 'parabolaz',
-		20, 'bumpy',
-		50, 'tornadoperiod',
-		2, 'xmod',
-		-150, 'wave'
+	{157, 0.5, flip(outQuad), 10, 'rotationz', -30, 'rotationy', -2000, 'tinyz', 400, 'zoomz', 100, 'invert'}
+	{157.5, 0.5, flip(outQuad), 10, 'rotationz', 30, 'rotationx', -2000, 'tinyz', 400, 'zoomz', 100, 'invert'}
+	{158, 1.5, pop,
+		-25, 'skewx',
+		-25, 'skewy',
+		45, 'rotationx',
+		45, 'rotationy',
+		-15, 'rotationz',
+		150, 'movex',
+		200, 'zoomz',
+		200, 'bumpy',
+		-100, 'tipsy',
+		25, 'alternate'
 	}
-	{148, 2, flip(outExpo), -5000, 'tinyz', 50, 'flip'}
-	{148, 2, flip(inQuad), -30 * math.pi/1.8, 'confusionxoffset'}
-	{148, 2, flip(outElastic), 1500, 'x', 500, 'spiralx'}
+	{159, 1.5, pop,
+		25, 'skewx',
+		25, 'skewy',
+		45, 'rotationx',
+		-45, 'rotationy',
+		15, 'rotationz',
+		-150, 'movex',
+		200, 'zoomz',
+		200, 'bumpy',
+		100, 'tipsy',
+		-25, 'alternate',
+		25, 'reverse'
+	}
 
 	set {160,
 		50, 'movez0',
@@ -574,15 +605,7 @@
 		ease {beat - 0.5, 1, inOutCirc, 100, 'scanlinepos'}
 		ease {beat + 0.5, 1, inOutCirc, 0, 'scanlinepos'}
 	end
-	--[[
-	set {174, -90 * math.pi/1.8, 'confusionzoffset0', plr = 2}
-	set {175, 0, 'confusionzoffset0', -90 * math.pi/1.8, 'confusionzoffset1', plr = 2}
-	set {176, 0, 'confusionzoffset1', -90 * math.pi/1.8, 'confusionzoffset2', plr = 2}
-	set {177, 0, 'confusionzoffset2', -90 * math.pi/1.8, 'confusionzoffset3', plr = 2}
-	set {178, 0, 'confusionzoffset3', -90 * math.pi/1.8, 'confusionzoffset2', plr = 2}
-	set {179, 0, 'confusionzoffset2', -90 * math.pi/1.8, 'confusionzoffset1', plr = 2}
-	set {180, 0, 'confusionzoffset1', plr = 2}
-	--]]
+	
 	func
 	{174, function(p) CheckoutBg:diffuse(sudo_bg[1], sudo_bg[2], sudo_bg[3], 1) end, persist = false}
 	{175, function(p) CheckoutBg:diffuse(nitgfan_bg[1], nitgfan_bg[2], nitgfan_bg[3], 1) end, persist = false}
@@ -912,6 +935,27 @@
 		{beat, 1, outQuad, 0, 'mini'}
 	end
 
+	ease
+	{284, 1, bounce, 150, 'flip', -150, 'tornado'}
+	{284.5, 1, inOutExpo, 45, 'flip', 55, 'reverse', 1600, 'zoomz', 150, 'tiny', -2, 'rotationx', -1000, 'tinyz'}
+	{285, 0.5, flip(outCirc), 100, 'invert'}
+	{285.5, 0.5, flip(outCirc), 100, 'invert'}
+	{285.5, 1, inOutExpo, 0, 'flip', 0, 'reverse', 100, 'zoomz', 0, 'tiny', 0, 'rotationx', 0, 'tinyz'}
+
+	{286, 2, flip(outCirc), 25, 'reverse'}
+
+	{286, 1, pop, -scx * 0.35, 'x', -15, 'rotationy', 20, 'flip', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', 30, 'rotationx', -1000, 'tinyz', 400, 'zoomz', 1.25, 'xmod'}
+	{286.5, 1, pop, scx * 0.35, 'x', 15, 'rotationy', 20, 'flip', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', 20, 'rotationx', -1000, 'tinyz', 400, 'zoomz', 1.25, 'xmod'}
+	{287, 1, pop, -scx * 0.25, 'x', -15, 'rotationy', 20, 'flip', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', 10, 'rotationx', -1000, 'tinyz', 400, 'zoomz', 1.25, 'xmod'}
+	{287.5, 1, pop, scx * 0.25, 'x', 15, 'rotationy', 20, 'flip', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', 5, 'rotationx', -1000, 'tinyz', 400, 'zoomz', 1.25, 'xmod'}
+	{288, 2, pop, 75, 'invert', 20, 'flip', -scx * 0.2, 'x', -15, 'rotationy', 50, 'skewy', -50, 'noteskewy', 100, 'parabolax', -1000, 'tinyz', 400, 'zoomz', 1, 'xmod'}
+	{289, 2, pop, 75, 'invert', 20, 'flip', scx * 0.2, 'x', 15, 'rotationy', -50, 'skewy', 50, 'noteskewy', -100, 'parabolax', -1000, 'tinyz', 400, 'zoomz', 1, 'xmod'}
+
+	{290, 1, outExpo, 1080, 'rotationy', -15, 'rotationx'}
+	{290, 2, inOutExpo, 100, 'flip', 0, 'rotationx', 1, 'xmod', 50, 'brake', 150, 'bumpy', 25, 'reverse', 10000, 'tinyz'}
+	{291, 2, inverse, 200, 'mini'}
+	{291, 1, inExpo, 0, 'flip', 1.75, 'xmod', 0, 'brake', 0, 'bumpy', 0, 'reverse', 0, 'tinyz'}
+
 	set {278, 0, 'scanlinepos'}
 	ease {278, 1, bounce, 60, 'scanlinepos'}
 	swap {278, 0, instant, 'drlu', plr = 2}
@@ -941,11 +985,11 @@
 	ease {283, 1, bell, 0, 'invert'}
 	swap {283, 1, bell, 'dlur'}
 	
-	local k3 = -1
+	local k4 = -1
 	func {284, 1, bounce, 0.5, function(p)
-		k3 = -k3
+		k4 = -k4
 		for pn = 1, #P do
-			P[pn]:zoom(1 + (p * k3))
+			P[pn]:zoom(1 + (p * k4))
 		end
 	end, persist = false}
 	
