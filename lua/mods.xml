@@ -193,7 +193,7 @@
 	card {196, 211, 'alright well blacksphere IS what you wanted i guess', 7, '#1B1B1B'}
 	card {224, 228, 'It has been -[ 0 DAYS ]- since Sudo has haunted the house', 0, '#F0F0F0'}
 	card {228, 229.5, 'DO YOU WANNA TAKE A NAP IN MY MODS NOW', 999, '#AC1010'}
-	--card {228, 252, '[spellcard here]', 0, '#FFFFFF'} -- needs review
+	card {228, 252, 'Cross-eyed AZTEC', 0, '#351FD2'} -- needs review
 	card {260, 284, 'Gyromanic DataMatrix', 12, '#E235E2'}
 	card {274, 275.5, 'DUDE ARE YOU OKAY', 2, '#CAFFAE'}
 	card {292, 316, 'Self Checkout', 12, '#4233AC'} -- needs review

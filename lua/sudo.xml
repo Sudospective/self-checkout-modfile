@@ -304,7 +304,7 @@
 	set {132, 0, 'rotationy', 0, 'scanlinealpha'}
 
 	ease {140, 20, linear, 150, 'bumpyx', 20, 'stealth', 1.25, 'xmod'}
-	ease {160, 4, outExpo, 0, 'bumpyx', 0, 'stealth', 1.75, 'xmod'}
+	ease {160, 4, linear, 0, 'bumpyx', 0, 'stealth', 1.75, 'xmod'}
 
 	
 	
@@ -372,7 +372,6 @@
 		set {beat + 1.25, 0, 'scanlinealpha'}
 	end
 
-	---[[
 	ease
 	{134, 1, outExpo, -150, 'movex', -10, 'rotationy', -10, 'rotationz'}
 	{134.25, 0.5, bell, 100, 'invert'}
@@ -385,13 +384,7 @@
 	{139, 1, inExpo, 0, 'movex', 0, 'rotationy', 0, 'rotationz'}
 	{139.25, 0.25, linear, 0, 'tinyz'}
 	{139, 1, pop, 25, 'bumpyxoffset', 50, 'tiny', 100, 'drunk'}
-	--]]
 
-	--ease {140, 0.5, linear, 180, 'rotationy', -180 * math.pi/1.8, 'confusionyoffset'}
-	--ease {141, 0.5, linear, 0, 'rotationy', 0 * math.pi/1.8, 'confusionyoffset'}
-
-	--ease {140, 2, bounce, -150, 'mini'}
-	ease
 	{140, 1, bounce, -150, 'mini', 15, 'rotationz'}
 	{141, 1, bounce, -150, 'mini', -15, 'rotationz'}
 	
@@ -401,15 +394,13 @@
 	{140, 0.5, outExpo, function()
 		k2 = -k2
 		for pn = 1, #P do
-			--poptions[pn].tipsy = 100 * k2 -- fuckin poptions dont work xero dammit
+			-- poptions didnt work .n.
 			GAMESTATE:ApplyModifiers('*-1 '..200 * k2..' tipsy')
 		end
 	end, persist = false}
 	{140, 1, linear, 0, 1, function(p)
 		v = 1 - v
 		for pn = 1, #P do
-			--poptions[pn].rotationy = 180 * v * p
-			--poptions[pn].confusionyoffset = (-180 * math.pi/1.8) * v * p
 			GAMESTATE:ApplyModifiers('*-1 '..180 * v * p..' rotationy')
 			GAMESTATE:ApplyModifiers('*-1 '..(-180 * math.pi/1.8) * v * p..' confusionyoffset')
 		end
@@ -423,15 +414,12 @@
 	{141, 0.5, outExpo, function()
 		k2 = -k2
 		for pn = 1, #P do
-			--poptions[pn].tipsy = 100 * k2 -- fuckin poptions dont work xero dammit
 			GAMESTATE:ApplyModifiers('*-1 '..200 * k2..' tipsy')
 		end
 	end, persist = false}
 	{141, 1, linear, 1, 0, function(p)
 		v = 1 - v
 		for pn = 1, #P do
-			--poptions[pn].rotationy = 180 * v * p
-			--poptions[pn].confusionyoffset = (-180 * math.pi/1.8) * v * p
 			GAMESTATE:ApplyModifiers('*-1 '..180 * v * p..' rotationy')
 			GAMESTATE:ApplyModifiers('*-1 '..(-180 * math.pi/1.8) * v * p..' confusionyoffset')
 		end
@@ -569,7 +557,6 @@
 		150, 'movex',
 		200, 'zoomz',
 		200, 'bumpy',
-		100, 'invert',
 		-100, 'tipsy',
 		25, 'alternate'
 	}
@@ -582,7 +569,6 @@
 		-150, 'movex',
 		200, 'zoomz',
 		200, 'bumpy',
-		100, 'invert',
 		100, 'tipsy',
 		-25, 'alternate',
 		25, 'reverse'
@@ -619,15 +605,7 @@
 		ease {beat - 0.5, 1, inOutCirc, 100, 'scanlinepos'}
 		ease {beat + 0.5, 1, inOutCirc, 0, 'scanlinepos'}
 	end
-	--[[
-	set {174, -90 * math.pi/1.8, 'confusionzoffset0', plr = 2}
-	set {175, 0, 'confusionzoffset0', -90 * math.pi/1.8, 'confusionzoffset1', plr = 2}
-	set {176, 0, 'confusionzoffset1', -90 * math.pi/1.8, 'confusionzoffset2', plr = 2}
-	set {177, 0, 'confusionzoffset2', -90 * math.pi/1.8, 'confusionzoffset3', plr = 2}
-	set {178, 0, 'confusionzoffset3', -90 * math.pi/1.8, 'confusionzoffset2', plr = 2}
-	set {179, 0, 'confusionzoffset2', -90 * math.pi/1.8, 'confusionzoffset1', plr = 2}
-	set {180, 0, 'confusionzoffset1', plr = 2}not in_editor
-	--]]
+	
 	func
 	{174, function(p) CheckoutBg:diffuse(sudo_bg[1], sudo_bg[2], sudo_bg[3], 1) end, persist = false}
 	{175, function(p) CheckoutBg:diffuse(nitgfan_bg[1], nitgfan_bg[2], nitgfan_bg[3], 1) end, persist = false}
