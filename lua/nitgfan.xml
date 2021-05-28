@@ -87,6 +87,8 @@
 	
 	ease2 (66,2,flip(CubicS),360,'rotationx2')
 	
+	
+	
 	local f = 1
 	for i=64.5,67.5,0.5 do
 		mod_kick(i,0.5,0, 50,'y','Cubic','Cubic')
@@ -105,6 +107,45 @@
 	ease {54, 1, flip(outSine), 50, 'stealth'}
 	ease {56, 1, flip(outSine), 50, 'stealth'}
 	
+	
+	
+	ease2 (220,1,CircS,50,'x')
+	ease2 (221,1,CircS,-50,'x')
+	ease2 (223,1,CircS,0,'x')
+	
+	ease2 (223,2,flip(CubicS),-360,'rotationx2')
+	
+	ease2 (224,1,flip(CubicS),-360,'rotationy2')
+	
+	mod_bounce(226,2,0, -1000,'z','Cubic','Sine')
+	mod_bounce(226,2,0, -5000,'tinyz','Cubic','Sine')
+	
+	local f = 1
+	for i=224.5,227.5,0.5 do
+		mod_kick(i,0.5,0, 50,'y','Cubic','Cubic')
+	f = f * -1
+	end
+	
+	ease {220, 1, flip(outQuart), -200, 'tiny'}
+	ease {221.5, 1, flip(outQuart), -200, 'tiny'}
+	ease {222, 1, flip(outQuart), -200, 'tiny'}
+	ease {223, 1, flip(outQuart), -200, 'tiny'}
+	ease {224.5, 1, flip(outQuart), -200, 'tiny'}
+	ease {225, 1, flip(outQuart), -200, 'tiny'}
+	
+	ease {220, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {221.5, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {222, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {223, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {224.5, 1, flip(outQuart), 0.1, 'bgkick'}
+	ease {225, 1, flip(outQuart), 0.1, 'bgkick'}
+	
+	ease {220, 1, flip(outQuart), -200, 'tipsy'}
+	ease {221.5, 1, flip(outQuart), 200, 'tipsy'}
+	ease {222, 1, flip(outQuart), -200, 'tipsy'}
+	ease {223, 1, flip(outQuart), 200, 'tipsy'}
+	ease {224.5, 1, flip(outQuart), -200, 'tipsy'}
+	ease {225, 1, flip(outQuart), 200, 'tipsy'}
 	
 -------------------- funk shit ----------------------------
 	ease2 (98,1,CircS,0.5,'bgzoom')
@@ -479,6 +520,118 @@
 	ease {302, 4, bounce, -50, 'rotationy'}
 	ease {310, 6, bounce, 50, 'rotationy'}
 	
+-------------------------- haha what ---------------------------------------
+	set {236, 0, 'scanlinealpha'}
+	set {236, 100, 'stealth',plr = 1}
+	set {236, 100, 'dark',plr = 2}
+	
+	set {252, 0, 'stealth',plr = 1}
+	set {252, 0, 'dark',plr = 2}
+	
+	mod_bounce(238,2,0, 150,'y','Cubic','Quart', 2)
+	mod_bounce(240,2,0, 150,'y','Cubic','Quart', 2)
+	mod_bounce(242,2,0, 150,'y','Cubic','Quart', 2)
+	
+	mod_bounce(246,2,0, 150,'y','Cubic','Sine', 2)
+	mod_bounce(248,2,0, -150,'y','Cubic','Sine', 2)
+	mod_bounce(250,2,0, 150,'y','Cubic','Sine', 2)
+	
+	ease_smooth(239,0.5,100,'flip','Quart','Cubic',0.5)
+	ease_smooth(239.5,0.5,0,'flip','Quart','Cubic',0.5)
+	
+	ease_smooth(241,0.5,100,'flip','Quart','Cubic',0.5)
+	ease_smooth(241.5,0.5,0,'flip','Quart','Cubic',0.5)
+	
+	ease_smooth(247,1,100,'reverse','Quart','Quart',0.7)
+	ease_smooth(249,1,0,'reverse','Quart','Quart',0.7)
+	ease_smooth(251,1,100,'reverse','Quart','Quart',0.7)
+	ease_smooth(253,1,0,'reverse','Quart','Quart',0.7)
+	
+	ease2 (238,0.5,CubicS,-200,'movex0')
+	ease2 (238,0.5,CubicS,-200,'movex1')
+	ease2 (238.5,0.5,CubicS,200,'movex2')
+	ease2 (238.5,0.5,CubicS,200,'movex3')
+	ease2 (239,0.5,CubicS,0,'movex0')
+	ease2 (239,0.5,CubicS,0,'movex1')
+	ease2 (239,0.5,CubicS,0,'movex2')
+	ease2 (239,0.5,CubicS,0,'movex3')
+	
+	ease2 (240,0.5,CubicS,400,'movex0')
+	ease2 (240,0.5,CubicS,400,'movex1')
+	ease2 (240.5,0.5,CubicS,-400,'movex2')
+	ease2 (240.5,0.5,CubicS,-400,'movex3')
+	ease2 (241,0.5,CubicS,0,'movex0')
+	ease2 (241,0.5,CubicS,0,'movex1')
+	ease2 (241,0.5,CubicS,0,'movex2')
+	ease2 (241,0.5,CubicS,0,'movex3')
+	
+	ease2 (242,0.5,CubicS,-200,'movex0')
+	ease2 (242,0.5,CubicS,-200,'movex1')
+	ease2 (242.5,0.5,CubicS,200,'movex2')
+	ease2 (242.5,0.5,CubicS,200,'movex3')
+	ease2 (243,0.5,CubicS,0,'movex0')
+	ease2 (243,0.5,CubicS,0,'movex1')
+	ease2 (243,0.5,CubicS,0,'movex2')
+	ease2 (243,0.5,CubicS,0,'movex3')
+	
+	
+	ease2 (246,0.5,CubicS,400,'movex0')
+	ease2 (246,0.5,CubicS,400,'movex1')
+	ease2 (246.5,0.5,CubicS,-400,'movex2')
+	ease2 (246.5,0.5,CubicS,-400,'movex3')
+	ease2 (247,0.5,CubicS,0,'movex0')
+	ease2 (247,0.5,CubicS,0,'movex1')
+	ease2 (247,0.5,CubicS,0,'movex2')
+	ease2 (247,0.5,CubicS,0,'movex3')
+	
+	ease2 (248,0.5,CubicS,-200,'movex0')
+	ease2 (248,0.5,CubicS,-200,'movex1')
+	ease2 (248.5,0.5,CubicS,200,'movex2')
+	ease2 (248.5,0.5,CubicS,200,'movex3')
+	ease2 (249,0.5,CubicS,0,'movex0')
+	ease2 (249,0.5,CubicS,0,'movex1')
+	ease2 (249,0.5,CubicS,0,'movex2')
+	ease2 (249,0.5,CubicS,0,'movex3')
+	
+	ease2 (250,0.5,CubicS,400,'movex0')
+	ease2 (250,0.5,CubicS,400,'movex1')
+	ease2 (250.5,0.5,CubicS,-400,'movex2')
+	ease2 (250.5,0.5,CubicS,-400,'movex3')
+	ease2 (251,0.5,CubicS,0,'movex0')
+	ease2 (251,0.5,CubicS,0,'movex1')
+	ease2 (251,0.5,CubicS,0,'movex2')
+	ease2 (251,0.5,CubicS,0,'movex3')
+	
+	ease2 (237,1,CubicS,150,'z')
+	ease2 (237,1,CubicS,50,'bumpyy')
+	ease2 (237,1,CubicS,50,'drunk')
+	ease2 (237,2,CubicS,-0.5,'bgzoom')
+	
+	ease2 (243,1,CubicS,0,'z')
+	ease2 (243,1,CubicS,0,'bumpyy')
+	ease2 (243,1,CubicS,0,'drunk')
+	ease2 (243,1,CubicS,0,'bgzoom')
+	
+	ease2 (245,1,CubicS,150,'z')
+	ease2 (245,1,CubicS,50,'bumpyy')
+	ease2 (245,1,CubicS,50,'drunk')
+	ease2 (245,2,CubicS,-0.5,'bgzoom')
+	
+	ease2 (252,1,CubicS,0,'z')
+	ease2 (252,1,CubicS,0,'bumpyy')
+	ease2 (252,1,CubicS,0,'drunk')
+	ease2 (252,1,CubicS,0,'bgzoom')
+	
+	ease2 (247,1,CubicS,180,'bgrotx')
+	ease2 (249,1,CubicS,0,'bgrotx')
+	ease2 (251,1,CubicS,-180,'bgrotx')
+	ease2 (252,1,CubicS,0,'bgrotx')
+	
+	ease2 (237,1,flip(CubicS),360,'rotationz')
+	ease2 (237,1,flip(CubicS),360,'bgrotz')
+	
+	ease2 (245,1,flip(CubicS),-360,'rotationz')
+	ease2 (245,1,flip(CubicS),-360,'bgrotz')
 	
 end)"
 Type = "ActorFrame"
