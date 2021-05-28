@@ -173,6 +173,8 @@
 	f = f * -1
 	end
 	
+	ease2 (32.5,2,CubicS,0.3,'bgzoom')
+	
 -------------------- funk shit ----------------------------
 	ease2 (98,1,CircS,0.5,'bgzoom')
 	ease2 (100,1,CircS,-0.5,'bgzoom')
@@ -480,6 +482,8 @@
 	
 	ease {220, 2, flip(outExpo), 0, 'zoomx'}
 	
+	ease {194, 2, flip(SineS), -360, 'blacksphere'}
+	
 --------------------- wibble wubble ----------------------------------------
 	
 	set {292, 0, 'rotationy'}
@@ -597,6 +601,44 @@
 	ease {294, 6, bounce, 50, 'rotationy'}
 	ease {302, 4, bounce, -50, 'rotationy'}
 	ease {310, 6, bounce, 50, 'rotationy'}
+	
+	ease {294, 6, bounce, -200, 'drunkz'}
+	ease {302, 4, bounce, 200, 'drunkz'}
+	ease {310, 6, bounce, -200, 'drunkz'}
+	
+	
+	mod_kick(292,4,0, -20000,'tinyz','Expo','Sine')
+	ease {292, 2, flip(outCubic), -500, 'tiny'}
+	ease {292, 2, flip(outSine), 50, 'stealth'}
+	ease2 (292,2,ExpoS,-500,'movez')
+	ease2 (294,2,ExpoS,0,'movez')
+	
+	
+	mod_kick(308,4,0, -20000,'tinyz','Expo','Sine')
+	ease {308, 2, flip(outCubic), -500, 'tiny'}
+	ease {308, 2, flip(outSine), 50, 'stealth'}
+	ease2 (308,2,ExpoS,-500,'movez')
+	ease2 (310,2,ExpoS,0,'movez')
+	
+	ease2 (306,1,CubicS,-100,'tipsy')
+	ease2 (307,1,CubicS,100,'tipsy')
+	ease2 (308,1,CubicS,0,'tipsy')
+	
+	ease2 (306,1,CubicS,-50,'skewx')
+	ease2 (307,1,CubicS,50,'skewx')
+	ease2 (308,1,CubicS,0,'skewx')
+	
+	ease2 (306,1,CubicS,50,'noteskewx')
+	ease2 (307,1,CubicS,-50,'noteskewx')
+	ease2 (308,1,CubicS,0,'noteskewx')
+	
+	
+	ease2 (292,2,CubicS,-0.5,'bgzoom')
+	ease2 (294,2,QuartS,0,'bgzoom')
+	
+	ease2 (308,2,CubicS,-0.5,'bgzoom')
+	ease2 (310,2,QuartS,0,'bgzoom')
+	
 	
 -------------------------- haha what ---------------------------------------
 	set {236, 0, 'scanlinealpha'}
@@ -763,6 +805,19 @@
 	mod_bounce(258,2,0, 100,'brake','Cubic','Cubic') 
 	
 	mod_bounce(258,2,0, -1000,'tinyz','Cubic','Cubic') 
+	
+	
+	ease2 (243,1,CubicS,150,'tipsy')
+	ease2 (244,1,CubicS,-150,'tipsy')
+	ease2 (245,1,CubicS,0,'tipsy')
+	
+	ease2 (243,1,CubicS,50,'skewx')
+	ease2 (244,1,CubicS,-50,'skewx')
+	ease2 (245,1,CubicS,0,'skewx')
+	
+	ease2 (243,1,CubicS,-50,'noteskewx')
+	ease2 (244,1,CubicS,50,'noteskewx')
+	ease2 (245,1,CubicS,0,'noteskewx')
 	
 end)"
 Type = "ActorFrame"
