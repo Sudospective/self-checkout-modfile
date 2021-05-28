@@ -844,6 +844,34 @@
 	ease {316, 1, flip(outSine), 50, 'stealth',plr=2}
 	
 	
+	ease2 (317,0.5,CubicS,100,'invert') 
+	ease2 (317.5,0.5,CubicS,0,'invert') 
+	
+	mod_bounce(318,1,0, 150,'tipsy','Cubic','Cubic') 
+	mod_bounce(319,1,0, -150,'tipsy','Cubic','Cubic') 
+	
+	ease2 (318,0.5,SineS,200,'drunk')
+	ease2 (318.5,0.5,SineS,-200,'drunk') 
+	ease2 (319,0.5,SineS,200,'drunk') 
+	ease2 (319.5,0.5,SineS,-200,'drunk') 
+	ease2 (320,0.5,CubicS,0,'drunk') 
+	
+	
+	ease2 (320,2,CubicS,100,'movex') 
+	ease2 (320,2,CubicS,20,'rotationz') 
+	
+	ease2 (322,2,CubicS,-100,'movex') 
+	ease2 (322,2,CubicS,-20,'rotationz') 
+	
+	mod_bounce(320,4,0, -300,'movez','Cubic','Cubic') 
+	mod_bounce(320,4,0, -5000,'tinyz','Cubic','Cubic') 
+	
+	ease2 (320,1,CubicS,100,'flip') 
+	ease2 (320.75,1,CubicS,-0,'flip') 
+	
+	ease2 (322,1,CubicS,100,'invert') 
+	ease2 (322.75,1,CubicS,-0,'invert') 
+	
 	
 end)"
 Type = "ActorFrame"
