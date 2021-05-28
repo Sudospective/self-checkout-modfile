@@ -7,6 +7,10 @@
 
 	setdefault {100, 'modtimer', 0, 'scanlinepos', 0, 'scanlinealpha', 0, 'bgzoom', 0, 'bgkick', 0, 'bgrotx', 0, 'bgroty', 0, 'bgrotz'}
 
+	func {4, 1, outExpo, 1, 0, function(p)
+		FishEye:GetShader():uniform1f('amount', p)
+	end}
+
 	ease
 	{34, 2, inOutCirc, 100, 'mini', 20, 'reverse'}
 	{36, 24, inQuad, -500, 'mini', 0, 'reverse', 50, 'flip', 0.75, 'xmod'}
@@ -660,7 +664,7 @@
 	
 	surface(228)
 	func {228, 2, sleep, 0.02, 0, function(p)
-		HGlitch:GetShader():uniform1f('amp', p)
+		HGlitch:GetShader():uniform1f('amp', p * 2)
 		HGlitch:GetShader():uniform1f('amp2', p * 5)
 	end}
 	

@@ -51,7 +51,7 @@
 	end
 
 	function surface(beat)
-		func {beat - 2, 4, spike, 0, -1, function(p)
+		func {beat - 4, 8, spike, 0, -1, function(p)
 			FishEye:GetShader():uniform1f('amount', p)
 		end}
 		func {beat, 2, outCirc, 1, 0, function(p)
