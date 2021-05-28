@@ -860,11 +860,15 @@
 	ease2 (320,2,CubicS,100,'movex') 
 	ease2 (320,2,CubicS,20,'rotationz') 
 	
+	ease2 (320,2,CubicS,1000,'zoomz') 
+	
 	ease2 (322,2,CubicS,-100,'movex') 
 	ease2 (322,2,CubicS,-20,'rotationz') 
 	
-	mod_bounce(320,4,0, -300,'movez','Cubic','Cubic') 
-	mod_bounce(320,4,0, -5000,'tinyz','Cubic','Cubic') 
+	mod_bounce(320,4,0, -100,'movez','Cubic','Cubic') 
+	mod_bounce(320,4,0, -300,'movey','Cubic','Cubic') 
+	mod_bounce(320,4,0, -1000,'tinyz','Cubic','Cubic') 
+	mod_bounce(320,4,0, -30,'rotationx','Cubic','Sine') 
 	
 	ease2 (320,1,CubicS,100,'flip') 
 	ease2 (320.75,1,CubicS,-0,'flip') 
@@ -872,6 +876,23 @@
 	ease2 (322,1,CubicS,100,'invert') 
 	ease2 (322.75,1,CubicS,-0,'invert') 
 	
+	ease2 (320,4,QuartS,-0.5,'bgzoom')
+
+	ease2 (318,1,CubicS,100,'reverse')
+	ease2 (319,1,CubicS,0,'reverse')
+	
+	ease2 (317,1,CubicS,50,'brake')
+	ease2 (318,1,CubicS,0,'brake')
+	ease2 (317,0.5,QuartS,-100,'movez')
+	ease2 (317.5,0.5,QuartS,200,'movez')
+	ease2 (318,0.5,CubicS,0,'movez')
+	
+	
+	ease2 (126,1,CubicS,100,'reverse')
+	ease2 (127,1,CubicS,0,'reverse')
+	
+	ease2 (254,1,CubicS,100,'reverse')
+	ease2 (255,1,CubicS,0,'reverse')
 	
 end)"
 Type = "ActorFrame"
