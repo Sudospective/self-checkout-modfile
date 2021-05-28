@@ -147,6 +147,32 @@
 	ease {224.5, 1, flip(outQuart), -200, 'tipsy'}
 	ease {225, 1, flip(outQuart), 200, 'tipsy'}
 	
+	
+	ease2 (35,1,CubicS,-0.3,'bgzoom')
+	ease {36, 22, inSine, 0.5, 'bgzoom'}
+	ease2 (60,1,CubicS,0,'bgzoom')
+	
+	local f = 1
+	for i=36,51,1 do
+		mod_kick(i,1,0, 0.1,'bgkick','Cubic','Cubic')
+		mod_kick(i,1,0, 10*f,'bgrotz','Cubic','Cubic')
+	f = f * -1
+	end
+	
+	local f = 1
+	for i=52,57.5,0.5 do
+		mod_kick(i,0.5,0, 0.2,'bgkick','Sine','Sine')
+		mod_kick(i,0.5,0, 10*f,'bgrotz','Sine','Sine')
+	f = f * -1
+	end
+	
+	local f = 1
+	for i=58,60,0.25 do
+		mod_kick(i,0.25,0, 0.2,'bgkick','Sine','Sine')
+		mod_kick(i,0.25,0, 10*f,'bgrotz','Sine','Sine')
+	f = f * -1
+	end
+	
 -------------------- funk shit ----------------------------
 	ease2 (98,1,CircS,0.5,'bgzoom')
 	ease2 (100,1,CircS,-0.5,'bgzoom')
@@ -381,9 +407,12 @@
 	for i=196,211 do
 		mod_kick(i,1,0, 100,'y','Cubic','Cubic')
 		mod_kick(i,1,0, 0.1,'bgkick','Cubic','Cubic')
-		--mod_kick(i,1,0, 100,'brake','Cubic','Cubic')
+		mod_kick(i,1,0, -2500,'tinyz','Cubic','Cubic')
+		mod_kick(i,1,0, -100,'tiny','Cubic','Cubic')
+		ease {i, 1, flip(linear), 50, 'brake'}
 	f = f * -1
 	end
+	
 	
 	ease2 (196,1,CubicS,300,'zoomz')
 	
@@ -394,6 +423,7 @@
 	set {300, 100, 'scanlinealpha'}
 	
 	ease2 (212,1,ExpoS,0,'rotationz')
+	ease2 (212,1,ExpoS,0,'rotationx')
 	
 	ease2 (198,1,ExpoS,100,'scanlinepos')
 	ease2 (200,1,ExpoS,0,'scanlinepos')
@@ -402,6 +432,54 @@
 	ease2 (206,1,ExpoS,0,'scanlinepos')
 	ease2 (208,1,ExpoS,100,'scanlinepos')
 	ease2 (210,1,ExpoS,0,'scanlinepos')
+	
+	--ease2 (164,1,inverse,1000,'y')
+	
+	ease2 (164,1,CubicS,0.3,'bgzoom')
+	ease2 (194,2,CubicS,0,'bgzoom')
+	
+	ease2 (164,1,CubicS,200,'zoom')
+	ease2 (194,2,CubicS,100,'zoom')
+	
+	ease {164, 32-4, flip(linear), 360*4, 'rotationy2'}
+	
+	local f = 1
+	for i=164,194,4 do
+		ease {i, 4, bounce, 30*f, 'rotationz'}
+		ease {i, 4, bounce, 5*f, 'bgrotz'}
+	f = f * -1
+	end
+	
+	ease2 (194, 4, flip(QuartS), -360, 'rotationy2')
+	
+	ease2 (212, 1.5, flip(CubicS), -360, 'rotationz2')
+	
+	local f = 1
+	for i=212,217.5,0.5 do
+		ease {i, 0.5, flip(linear), 200*f, 'drunk'}
+		ease {i, 0.5, flip(linear), 0.2, 'bgkick'}
+	f = f * -1
+	end
+	
+	local f = 1
+	for i=218,219.75,0.25 do
+		ease {i, 0.25, flip(linear), 1000*f, 'drunk'}
+		ease {i, 0.25, flip(linear), 0.2, 'bgkick'}
+	f = f * -1
+	end
+	
+	ease {212, 6, inExpo, -100, 'reverse'}
+	ease {212, 6, inCubic, -500, 'tiny'}
+	ease {212, 6, inCubic, 70, 'rotationx'}
+	ease {212, 6, outSine, -1000, 'tinyz'}
+	
+	ease {220, 1, instant, 0, 'reverse'}
+	ease {220, 1, instant, 0, 'tiny'}
+	ease {220, 1, instant, 0, 'rotationx'}
+	ease {220, 1, instant, 0, 'tinyz'}
+	
+	ease {220, 2, flip(outExpo), 0, 'zoomx'}
+	
 --------------------- wibble wubble ----------------------------------------
 	
 	set {292, 0, 'rotationy'}
@@ -528,13 +606,13 @@
 	set {252, 0, 'stealth',plr = 1}
 	set {252, 0, 'dark',plr = 2}
 	
-	mod_bounce(238,2,0, 150,'y','Cubic','Quart', 2)
-	mod_bounce(240,2,0, 150,'y','Cubic','Quart', 2)
-	mod_bounce(242,2,0, 150,'y','Cubic','Quart', 2)
+	mod_bounce(238,2,0, 100,'y','Cubic','Quart', 2)
+	mod_bounce(240,2,0, 100,'y','Cubic','Quart', 2)
+	mod_bounce(242,2,0, 100,'y','Cubic','Quart', 2)
 	
-	mod_bounce(246,2,0, 150,'y','Cubic','Sine', 2)
-	mod_bounce(248,2,0, -150,'y','Cubic','Sine', 2)
-	mod_bounce(250,2,0, 150,'y','Cubic','Sine', 2)
+	mod_bounce(246,2,0, 100,'y','Cubic','Sine', 2)
+	mod_bounce(248,2,0, -100,'y','Cubic','Sine', 2)
+	mod_bounce(250,2,0, 100,'y','Cubic','Sine', 2)
 	
 	ease_smooth(239,0.5,100,'flip','Quart','Cubic',0.5)
 	ease_smooth(239.5,0.5,0,'flip','Quart','Cubic',0.5)
@@ -632,6 +710,59 @@
 	
 	ease2 (245,1,flip(CubicS),-360,'rotationz')
 	ease2 (245,1,flip(CubicS),-360,'bgrotz')
+	
+	local f = 1
+	for i=238,238+5,0.5 do
+		mod_kick(i,0.5,100, 150,'zoomx','Quart','Quart')
+		mod_kick(i,0.5,0, 0.1,'bgkick','Cubic','Cubic')
+	f = f * -1
+	end
+	
+	local f = 1
+	for i=246,246+5,0.5 do
+		mod_kick(i,0.5,100, 150,'zoomx','Quart','Quart')
+		mod_kick(i,0.5,0, 0.1,'bgkick','Cubic','Cubic')
+	f = f * -1
+	end
+	
+	mod_kick(236,2,0, -5000,'tinyz','Expo','Cubic')
+	mod_kick(236,2,0, 500,'z','Expo','Cubic')
+	ease {236, 1, flip(outCubic), 500, 'shakez'}
+	ease {236, 1, flip(outCubic), -500, 'tiny'}
+	ease {236, 1, flip(outSine), 50, 'stealth',plr=2}
+	
+	mod_kick(252,2,0, -5000,'tinyz','Expo','Cubic')
+	mod_kick(252,2,0, 500,'z','Expo','Cubic')
+	ease {252, 1, flip(outCubic), 500, 'shakez'}
+	ease {252, 1, flip(outCubic), -500, 'tiny'}
+	ease {252, 1, flip(outSine), 50, 'stealth',plr=2}
+	
+	ease2 (253,0.5,CubicS,100,'invert') 
+	ease2 (253.5,0.5,CubicS,0,'invert') 
+	
+	mod_bounce(254,1,0, 150,'tipsy','Cubic','Cubic') 
+	mod_bounce(255,1,0, -150,'tipsy','Cubic','Cubic') 
+	mod_bounce(256,1,0, 50,'skewx','Cubic','Cubic') 
+	mod_bounce(257,1,0, -50,'skewx','Cubic','Cubic') 
+	
+	ease2 (254,0.5,SineS,200,'drunk')
+	ease2 (254.5,0.5,SineS,-200,'drunk') 
+	ease2 (255,0.5,SineS,200,'drunk') 
+	ease2 (255.5,0.5,SineS,-200,'drunk') 
+	ease2 (256,0.5,CubicS,0,'drunk') 
+	
+	ease2 (258,1,CircS,-50,'rotationx') 
+	ease2 (259,1,CircS,50,'rotationx') 
+	ease2 (260,1,CircS, 0,'rotationx') 
+	ease2 (258,1,CircS,-300,'movez') 
+	ease2 (260,1,CircS, 0,'movez') 
+	
+	ease2 (259,1,CircS,-300,'mini') 
+	ease2 (260,1,CircS, 0,'mini') 
+	
+	mod_bounce(258,2,0, 100,'brake','Cubic','Cubic') 
+	
+	mod_bounce(258,2,0, -1000,'tinyz','Cubic','Cubic') 
 	
 end)"
 Type = "ActorFrame"
