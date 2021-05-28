@@ -443,7 +443,7 @@
 	ease2 (164,1,CubicS,200,'zoom')
 	ease2 (194,2,CubicS,100,'zoom')
 	
-	ease {164, 32-4, flip(linear), 360*4, 'rotationy2'}
+	ease {164, 32-4, flip(linear), 360*6, 'rotationy2'}
 	
 	local f = 1
 	for i=164,194,4 do
@@ -572,8 +572,6 @@
 		mod_bounce(i,2,0, 30*f,'rotationz','Quart','Quart')
 		mod_bounce(i,1,0, 30*f,'rotationx','Quart','Sine')
 		mod_bounce(i+1,1,0, 30*f,'rotationx','Quart','Sine')
-		set {i, 100, 'reverse', plr = 2}
-		set {i+1, 0, 'reverse', plr = 2}
 	f = f * -1
 	end
 	
@@ -593,8 +591,6 @@
 		mod_bounce(i,2,0, -30*f,'rotationz','Quart','Quart')
 		mod_bounce(i,1,0, -30*f,'rotationx','Quart','Sine')
 		mod_bounce(i+1,1,0, -30*f,'rotationx','Quart','Sine')
-		set {i, 100, 'reverse', plr = 2}
-		set {i+1, 0, 'reverse', plr = 2}
 	f = f * -1
 	end
 	
@@ -639,6 +635,27 @@
 	ease2 (308,2,CubicS,-0.5,'bgzoom')
 	ease2 (310,2,QuartS,0,'bgzoom')
 	
+	mod_kick(300,1,0, -20000,'tinyz','Quart','Sine')
+	ease {300, 2, flip(outCubic), -500, 'tiny'}
+	ease {300, 2, flip(outSine), 50, 'stealth'}
+	ease2 (300,1,CubicS,-500,'movez')
+	ease2 (301,1,CubicS,0,'movez')
+	
+	ease2 (300,1,CubicS,-0.5,'bgzoom')
+	ease2 (301,1,CubicS,0,'bgzoom')
+	
+	ease2 (300,1,CubicS,100,'flip')
+	ease2 (301,1,CubicS,0,'flip')
+	
+	ease2 (301,1,CubicS,100,'reverse',1)
+	ease2 (301,1,CubicS,0,'reverse',2)
+	
+	ease2 (308,1,CubicS,0,'reverse',1)
+	ease2 (308,1,CubicS,100,'reverse',2)
+	
+	ease2 (515,1,CubicS,0,'reverse',2)
+	
+	ease {515.5, 0.5, instant, 0, 'scanlinealpha'}
 	
 -------------------------- haha what ---------------------------------------
 	set {236, 0, 'scanlinealpha'}
@@ -818,6 +835,15 @@
 	ease2 (243,1,CubicS,-50,'noteskewx')
 	ease2 (244,1,CubicS,50,'noteskewx')
 	ease2 (245,1,CubicS,0,'noteskewx')
+	
+	
+	mod_kick(316,2,0, -5000,'tinyz','Expo','Cubic')
+	mod_kick(316,2,0, 500,'z','Expo','Cubic')
+	ease {316, 1, flip(outCubic), 500, 'shakez'}
+	ease {316, 1, flip(outCubic), -500, 'tiny'}
+	ease {316, 1, flip(outSine), 50, 'stealth',plr=2}
+	
+	
 	
 end)"
 Type = "ActorFrame"
