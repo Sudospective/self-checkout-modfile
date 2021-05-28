@@ -842,12 +842,15 @@
 	set {268, 0, 'scanlinepos'}
 
 	ease
-	{261, 1, flip(inExpo), 360, 'rotationz'}
-	{262, 1.5, pop, -15, 'rotationz', 30, 'rotationx', 400, 'zoomz'}
-	{263, 1, flip(inExpo), -360, 'rotationz'}
-	{264, 1.5, pop, 15, 'rotationz', 30, 'rotationx', 400, 'zoomz'}
-	{265, 1, flip(inExpo), 360, 'rotationz'}
-	{266, 1.5, pop, -15, 'rotationz', 30, 'rotationx', 400, 'zoomz'}
+	{261, 1, flip(inExpo), -360, 'bgrotz', 360, 'rotationz'}
+	{261, 1, function(x) return inQuad(tap(x)) end, 1, 'bgzoom'}
+	{262, 1.5, pop, -0.3, 'bgzoom', 15, 'bgrotz', -15, 'rotationz', 30, 'rotationx', 400, 'zoomz'}
+	{263, 1, flip(inExpo), 360, 'bgrotz', -360, 'rotationz'}
+	{263, 1, function(x) return inQuad(tap(x)) end, 1, 'bgzoom'}
+	{264, 1.5, pop, -0.3, 'bgzoom', -15, 'bgrotz', 15, 'rotationz', 30, 'rotationx', 400, 'zoomz'}
+	{265, 1, flip(inExpo), -360, 'bgrotz', 360, 'rotationz'}
+	{265, 1, function(x) return inQuad(tap(x)) end, 1, 'bgzoom'}
+	{266, 1.5, pop, -0.3, 'bgzoom', 15, 'bgrotz', -15, 'rotationz', 30, 'rotationx', 400, 'zoomz'}
 	for beat = 262, 266, 2 do
 		set {beat, -1000, 'mini', 25, 'tipsyspacing'}
 		ease
@@ -857,10 +860,20 @@
 	end
 	
 	ease
-	{269, 1, flip(inExpo), -360, 'rotationz'}
-	{270, 1.5, pop, 15, 'rotationz', 30, 'rotationx'}
-	{271, 1, flip(inExpo), 360, 'rotationz'}
-	{272, 1.5, pop, -15, 'rotationz', 30, 'rotationx'}
+	{267, 1, inOutExpo, -180, 'bgrotz'}
+	{268, 1, inOutExpo, -180, 'bgrotx'}
+	
+	set {270, 0, 'bgrotx', 0, 'bgrotz'}
+
+	ease
+	{269, 1, flip(inExpo), -540, 'bgrotz', -360, 'rotationz'}
+	{269, 1, function(x) return inQuad(tap(x)) end, 1, 'bgzoom'}
+	{270, 1.5, pop, -0.3, 'bgzoom', -15, 'bgrotz', 15, 'rotationz', 30, 'rotationx'}
+	{271, 1, flip(inExpo), -360, 'bgrotz', 360, 'rotationz'}
+	{271, 1, function(x) return inQuad(tap(x)) end, 1, 'bgzoom'}
+	{272, 1.5, pop, -0.3, 'bgzoom', 15, 'bgrotz', -15, 'rotationz', 30, 'rotationx'}
+
+
 	for beat = 270, 272, 2 do
 		set {beat, -2000, 'mini', 25, 'tipsyspacing'}
 		ease
@@ -870,24 +883,27 @@
 	end
 
 	ease
-	{273.5, 1, inOutExpo, 400, 'zoomz', -100, 'mini', 30, 'rotationx', -20, 'rotationy', -15, 'rotationz', -25, 'movex'}
-	{274.5, 1, inOutExpo, 20, 'rotationy', 15, 'rotationz', 25, 'movex'}
-	{275.5, 1, inOutExpo, 100, 'zoomz', 0, 'mini', 0, 'rotationx', 0, 'rotationy', 0, 'rotationz', 0, 'movex'}
+	{273.5, 1, inOutExpo, 400, 'zoomz', -100, 'mini', 30, 'rotationx', -20, 'rotationy', -15, 'rotationz', -25, 'movex', -10, 'bgroty', 10, 'bgrotz', -0.2, 'bgzoom'}
+	{274.5, 1, inOutExpo, 20, 'rotationy', 15, 'rotationz', 25, 'movex', 10, 'bgroty', -10, 'bgrotz'}
+	{275.5, 1, inOutExpo, 100, 'zoomz', 0, 'mini', 0, 'rotationx', 0, 'rotationy', 0, 'rotationz', 0, 'movex', 0, 'bgroty', 0, 'bgrotz', 0, 'bgzoom'}
 	{273, 2, spike, 150, 'zoomy', 20, 'skewy'}
 	{274, 2, spike, 150, 'zoomx', -20, 'skewx'}
 	{275, 2, spike, 150, 'zoomy', -20, 'skewy'}
 	{275, 1, pop, -200, 'tiny', -1000, 'tinyz'}
-	{276, 1, pop, 500, 'bumpy', -1500, 'tinyz', -500, 'tiny', 25, 'flip', 200, 'zoomz', 100, 'brake', 25, 'reverse', 30, 'rotationx', -30 * math.pi/1.8, 'confusionxoffset'}
+	{276, 1, pop, 500, 'bumpy', -1500, 'tinyz', -500, 'tiny', 25, 'flip', 200, 'zoomz', 100, 'brake', 25, 'reverse', 30, 'rotationx', -30 * math.pi/1.8, 'confusionxoffset', 0.2, 'bgzoom'}
 	{277, 0.5, bounce, 150, 'tiny'}
 	{276, 2, inOutExpo, 100, 'flip'}
 	{277, 2, inOutExpo, 0, 'flip'}
 	
-	{277, 1, flip(inExpo), -360, 'rotationz'}
-	{278, 1.5, pop, 15, 'rotationz', -30, 'rotationx'}
-	{279, 1, flip(inExpo), 360, 'rotationz'}
-	{280, 1.5, pop, -15, 'rotationz', -30, 'rotationx'}
-	{281, 1, flip(inExpo), -360, 'rotationz'}
-	{282, 1.5, pop, 15, 'rotationz', -30, 'rotationx'}
+	{277, 1, flip(inExpo), 360, 'bgrotz', -360, 'rotationz'}
+	{277, 1, function(x) return inQuad(tap(x)) end, -0.5, 'bgzoom'}
+	{278, 1.5, pop, 0.2, 'bgzoom', -15, 'bgrotz', 15, 'rotationz', -30, 'rotationx'}
+	{279, 1, flip(inExpo), -360, 'bgrotz', 360, 'rotationz'}
+	{279, 1, function(x) return inQuad(tap(x)) end, -0.5, 'bgzoom'}
+	{280, 1.5, pop, 0.2, 'bgzoom', 15, 'bgrotz', -15, 'rotationz', -30, 'rotationx'}
+	{281, 1, flip(inExpo), 360, 'bgrotz', -360, 'rotationz'}
+	{281, 1, function(x) return inQuad(tap(x)) end, -0.5, 'bgzoom'}
+	{282, 1.5, pop, 0.2, 'bgzoom', -15, 'bgrotz', 15, 'rotationz', -30, 'rotationx'}
 	for beat = 278, 282, 2 do
 		set {beat, 200, 'mini', 25, 'tipsyspacing'}
 		ease
