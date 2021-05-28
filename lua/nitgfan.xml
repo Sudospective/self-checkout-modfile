@@ -13,7 +13,7 @@
 
 	-- Putting these her for your convenience. ~Sudo
 	castspell(92, 'Hyperactive Barcode')
-	--castspell(220, '[spellcard here]')
+	castspell(220, 'Cross-eyed AZTEC')
 	castspell(286, 'Self Checkout')
 	
 	-- your code goes here here:
